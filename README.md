@@ -8,8 +8,8 @@
 4. Serenna Ferrari
 5. Vitor Soares
 # Project Model Canvas
-[link para o PMC](https://docs.google.com/presentation/d/1hml3mjqSyV7-OW9-NzfmXlYRLPvKSsD0H32v5t4G9qQ/edit)
+[Link para o PMC](https://docs.google.com/presentation/d/1hml3mjqSyV7-OW9-NzfmXlYRLPvKSsD0H32v5t4G9qQ/edit)
 # Diário de bordo
 [Link para o diário de bordo](DiarioDeBordo.md)
 # Diagrama de classes
-https://www.lucidchart.com/invitations/accept/9b1c7015-b174-4c70-bdb6-bebb90b65462
+[Link para o Diagrama de Classes](https://www.lucidchart.com/invitations/accept/9b1c7015-b174-4c70-bdb6-bebb90b65462)
