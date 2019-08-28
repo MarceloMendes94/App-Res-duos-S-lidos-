@@ -7,4 +7,4 @@
 |18/08/2019|Marcelo|Elaboração de um minimundo versão 1 para elucidar duvidas do diagrama de classe.|
 |26/08/2019|Marcelo, Luiz, Vitor|Recebimento do feedback do trabalho(Diagrama de classes, prototipação).<br> Início da elaboração de formulários do sistema(cadastros)|
 |27/08/2019|Serenna|Atualização do minimundo, adicionando mais detalhes.|
-|27/08/2019|Hellesandro|Ajustes no Diagrama de Classes.|
+|27/08/2019|Hellesandro|Ajustes no Diagrama de Classes: novas relações, adição de nome das relações, expansão da classe licao.|
