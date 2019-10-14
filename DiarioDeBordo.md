@@ -9,4 +9,6 @@
 |27/08/2019|Serenna|Atualização do minimundo, adicionando mais detalhes.|
 |27/08/2019|Hellesandro|Ajustes no Diagrama de Classes: novas relações, adição de nome das relações, expansão da classe licao.|
 |19/09/2019|Vitor|Inclusão de documento com Requisitos Funcionais.|
+|22/09/2019|Todos|Definições de tecnologia a serem usadas.|
 |25/09/2019|Vitor|Inclusão de diagrama de Casos de Uso, inclusão de requisitos não funcionais e regras de negócio.|
+|13/10/2019|Vitor, Serenna e Hellesandro|Adiçao de novas regras de negocio, criaçao do analysis model canvas.|
