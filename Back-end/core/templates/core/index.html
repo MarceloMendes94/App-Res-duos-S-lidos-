@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo ao recicle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#loginbox").toggle();
+  });
+});
+
+    </script>
+</head>
+<body>
+<div class="container-fluid" style="background-color: #00994c; color: #E0E0E0;">
+    <nav class="navbar navbar-expand-lg ">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link disabled">
+                        <h1>REcicle</h1></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button>
+                    login
+                </button>
+            </form>
+        </div>
+    </nav>
+</div>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">REcicle</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-white rounded   " style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Motorista</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="/motorista/"> link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Cliente</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="/cliente/"> link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginbox" class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Login</h5>
+            <h6 class="card-subtitle mb-2 text-muted">meu form</h6>
+            <label> email</label>
+            <input type="text">
+            <label> senha</label>
+            <input type="text">
+            <a href="#">esqueci a senha</a>
+            <br><br>
+            <button> fazer login</button>
+        </div>
+    </div>
+</body>
+</html>
