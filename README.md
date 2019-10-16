@@ -9,6 +9,10 @@
 5. Vitor Soares
 # Project Model Canvas
 [Link para o PMC](https://docs.google.com/presentation/d/1hml3mjqSyV7-OW9-NzfmXlYRLPvKSsD0H32v5t4G9qQ/edit)
+# Analysis Model Canvas
+[Link para o AMC](https://docs.google.com/drawings/d/1rJTPfIcvylvZJEV-KwLGgMKiEAmHVsm8Z_GbUhi8jiM/edit?usp=sharing)
+# Design Model Canvas
+[Link para o DMC](https://docs.google.com/drawings/d/1sC3zElntJTkLzuDKdSNapvyUaNQDlaPsK-bsczYqMRc/edit?usp=sharing)
 # Diário de bordo
 [Link para o diário de bordo](DiarioDeBordo.md)
 # Diagrama de classes
