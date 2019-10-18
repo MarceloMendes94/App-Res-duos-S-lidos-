@@ -2,6 +2,10 @@ from django.shortcuts import render
 from .forms import FormMotorista
 from .forms import FormCliente
 from .forms import FormEndereco
+from core.models import Cliente
+#p = Dodavatel(nazov='Petr', dostupnost=1)
+#p.save()
+
 '''
 /principal/
 /motorista/
@@ -39,13 +43,15 @@ def motorista_cadastro(request):
             post.save()
     else:
         form = FormMotorista(request.POST)
-    return render(request, 'core/cadastro_motoristas.html', {'form_motorista':form})
+    return render(request, 'core/cadastro_motoristas.html', {'form_motorista': form})
+
 
 # Redirecionador para tipo de cadastro
 def cadastro(request):
     return render(request, 'core/cadastro.html', {})
 
-#cliente
+
+# cliente
 
 
 def cliente(request):
@@ -57,11 +63,18 @@ def cliente_cadastro(request):
     form_endereco = FormEndereco(request.POST)
     if form_endereco.is_valid() and form_cliente:
         form_endereco.save(commit=False)
-        end= form_endereco.save()
-        envio=form_cliente.save(commit=False)
-        envio.endereco = end
-        envio.save()
-    return render(request, 'core/cadastro_clientes.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
-
-
-
+        end = form_endereco.save()
+        # Dados pessoais
+        nome = (request.POST.get('nome_completo'))
+        data = (request.POST.get('data_de_nascimento'))
+        cpf_input = (request.POST.get('cpf'))
+        telefone_input= (request.POST.get('telefone'))
+        email_input= (request.POST.get('email'))
+        senha_input = (request.POST.get('senha'))
+        clienteOBJ = Cliente(nome_completo=nome,cpf=cpf_input, tefefone=telefone_input,data_nascimento=data,email=email_input, senha=senha_input, endereco=end)
+        clienteOBJ.save()
+        #envio = form_cliente.save(commit=False)
+        #envio.endereco = end
+        #envio.save()
+    return render(request, 'core/cadastro_clientes.html',
+                  {'form_cliente': form_cliente, 'form_endereco': form_endereco})

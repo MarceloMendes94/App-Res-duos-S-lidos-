@@ -1,13 +1,16 @@
 from django.db import models
+
 '''
 
 '''
+
 
 class Estado(models.Model):
     sigla = models.CharField(max_length=2)
 
     def __str__(self):
         return
+
 
 class Cidade(Estado):
     nome_cidade = models.CharField(max_length=30)
@@ -24,7 +27,7 @@ class Endereco(Bairro):
     referencia = models.TextField()
 
     def __str__(self):
-        return self.cep +" "+self.nome_bairro+" "+self.nome_cidade +" "+self.sigla
+        return self.cep + " " + self.nome_bairro + " " + self.nome_cidade + " " + self.sigla
 
 
 class Usuario(models.Model):
@@ -41,8 +44,5 @@ class Cliente(Usuario):
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
     cpf = models.CharField(max_length=11)
     nome_completo = models.TextField()
-    
-
-
-
-
+    tefefone = models.CharField(max_length=11)
+    data_nascimento = models.DateField()
