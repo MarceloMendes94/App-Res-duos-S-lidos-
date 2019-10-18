@@ -40,6 +40,9 @@ class Motorista(Usuario):
 class Cliente(Usuario):
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
     cpf = models.CharField(max_length=11)
+    nome_completo = models.text()
+    
+
 
 
 

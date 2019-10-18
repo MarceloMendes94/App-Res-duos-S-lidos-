@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Cliente</title>
@@ -28,12 +28,15 @@
 </head>
 <body>
 
-<div class="container-fluid" style="background-color: #00994c; color: #E0E0E0;">
-    <h1>
-        REcicle
-    </h1>
-</div>
-<br>
+<nav class="navbar navbar-light bg-light" >
+        <!-- Logo -->
+        <a class="navbar-brand" href="../../">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            reCicle
+        </a>
+        
+    </nav>
 <div class="container">
     <div class="row">
         <div class="col-md-10">
@@ -41,12 +44,14 @@
                 <div class="card  shadow p-3 mb-5 bg-white rounded">
                     <h2>Cadastro de Cliente</h2>
                     <form method="POST" class="post-form">{% csrf_token %}
+                        <h5>Dados Pessoais</h5>
+                    {{form_cliente}}
                     {% for i in form_endereco %}
                     <label>{{i.label}}</label>
                     {{ i }}
                     <br><br>
                     {% endfor %}
-                    {{form_cliente}}
+                    
                     <br><br>
                     <button type="submit" class="btn btn-success">cadastro</button>
                     <br><br>

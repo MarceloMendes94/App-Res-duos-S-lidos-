@@ -39,7 +39,11 @@ def motorista_cadastro(request):
             post.save()
     else:
         form = FormMotorista(request.POST)
-    return render(request, 'core/cadastro_motoristas.html', {'form':form})
+    return render(request, 'core/cadastro_motoristas.html', {'form_motorista':form})
+
+# Redirecionador para tipo de cadastro
+def cadastro(request):
+    return render(request, 'core/cadastro.html', {})
 
 #cliente
 
@@ -58,7 +62,6 @@ def cliente_cadastro(request):
         envio.endereco = end
         envio.save()
     return render(request, 'core/cadastro_clientes.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
-
 
 
 

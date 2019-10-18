@@ -13,7 +13,7 @@ class FormMotorista(forms.ModelForm):
 class FormCliente(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ('cpf', 'email', 'senha',)
+        fields = ('nome_completo','data_nasc','cpf', 'telefone','email', 'senha',)
 
 
 class FormEndereco(forms.ModelForm):
