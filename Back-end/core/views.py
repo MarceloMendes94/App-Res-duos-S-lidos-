@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin
-from core.models import Cliente
+from core.models import Cliente, Cupom
 
 '''
 /principal/
 /motorista/
-    /motorista/cadastro/
+    /motorista/cadastro/*
     /motorista/perfil/
     /motorista/perfil/editar/
     /motorista/selecionar/
@@ -13,17 +13,17 @@ from core.models import Cliente
     /motorista/carteira/
     /motorista/resgate/
     
-/cliente/
-    /cliente/cadastro/
-    /cliente/perfil/
+/cliente/*
+    /cliente/cadastro/*
+    /cliente/perfil/*
     /cliente/perfil/editar/
     /cliente/agendar/
     /cliente/carteira/
-    /cliente/loja/    
+    /cliente/loja/*    
 '''
 
-# trabalhando a autenticação
 
+# trabalhando a autenticação
 
 
 def principal(request):
@@ -48,18 +48,6 @@ def login(request):
             print("erro")
 
     return render(request, 'core/login.html', {"form_login": form_login})
-
-
-def autenticado_cliente(request):
-    #print(request.session['auth_email'])    print(request.session['auth_senha'])    print(request.session['auth_tokken'])
-    if request.session['auth_email']!=0 and request.session['auth_senha']!=0 and request.session['auth_tokken']!=0 :
-        return render(request, 'core/cliente_perfil.html', {})
-    else:
-        print('erro gambi')
-        form_login = FormLogin(request.POST)
-        return render(request, 'core/login.html', {"form_login": form_login})
-    return render(request, 'core/index.html', {})
-
 
 
 # motorista
@@ -106,3 +94,20 @@ def cliente_cadastro(request):
         clienteOBJ.save()
     return render(request, 'core/cadastro_clientes.html',
                   {'form_cliente': form_cliente, 'form_endereco': form_endereco})
+
+
+def cliente_autenticado(request):
+    # print(request.session['auth_email'])    print(request.session['auth_senha'])    print(request.session['auth_tokken'])
+    if request.session['auth_email'] != 0 and request.session['auth_senha'] != 0 and request.session['auth_tokken'] != 0:
+        return render(request, 'core/cliente_perfil.html', {})
+    else:
+        print('erro gambi')
+        form_login = FormLogin(request.POST)
+        return render(request, 'core/login.html', {"form_login": form_login})
+    return render(request, 'core/index.html', {})
+
+
+def cliente_loja(request):
+    result = Cupom.objects.all()
+    print(result)
+    return render(request, 'core/cliente_loja.html', {"result": result})
