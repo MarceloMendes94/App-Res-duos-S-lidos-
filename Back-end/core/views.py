@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .forms import FormMotorista, FormCliente, FormEndereco
+from django.shortcuts import render, redirect
+from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin
 from core.models import Cliente
 
 '''
@@ -22,11 +22,47 @@ from core.models import Cliente
     /cliente/loja/    
 '''
 
+# trabalhando a autenticação
+
+
 
 def principal(request):
     return render(request, 'core/index.html', {})
 
 
+def login(request):
+    form_login = FormLogin(request.POST)
+    if request.method == "POST":
+        email = request.POST.get("email")
+        senha = request.POST.get("senha")
+        result = Cliente.objects.filter(email=email, senha=senha)
+        if (len(result)):
+            request.session['auth_email'] = email
+            request.session['auth_senha'] = senha
+            request.session['auth_tokken'] = True
+            return redirect('/cliente/perfil/')
+        else:
+            request.session['auth_email'] = 0
+            request.session['auth_senha'] = 0
+            request.session['auth_tokken'] = 0
+            print("erro")
+
+    return render(request, 'core/login.html', {"form_login": form_login})
+
+
+def autenticado_cliente(request):
+    #print(request.session['auth_email'])    print(request.session['auth_senha'])    print(request.session['auth_tokken'])
+    if request.session['auth_email']!=0 and request.session['auth_senha']!=0 and request.session['auth_tokken']!=0 :
+        return render(request, 'core/cliente_perfil.html', {})
+    else:
+        print('erro gambi')
+        form_login = FormLogin(request.POST)
+        return render(request, 'core/login.html', {"form_login": form_login})
+    return render(request, 'core/index.html', {})
+
+
+
+# motorista
 def motorista(request):
     return render(request, 'core/motorista.html', {})
 
