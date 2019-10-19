@@ -7,28 +7,62 @@
     <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
+
+
+<!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+<nav class="navbar navbar-light bg-light">
+    <!-- Logo -->
+    <a class="navbar-brand" href="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+             width="30" height="30" class="d-inline-block align-top" alt="">
+        reCicle
+    </a>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link " href="/cadastro">Cadastre-se</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Entrar</a>
+        </li>
+    </ul>
+</nav>
+
+
+<br>
 <div class="container">
     <div class="row">
-
         <h1> lojinha</h1><br>
     </div>
+    <div class="row">
         {% for c in result %}
-        <label>{{c.label}}</label>
+        <div class="col-4">
+            <label>{{c.label}}</label>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ c.empresa.nome }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">R$ {{ c.valor }}</h6>
-                <p class="card-text ">
-                    <img src={{ c.empresa.imagem }} width="50px"> Cupom válido por 21 dias
-                </p>
-                <a href="#" class="card-link">comprar</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ c.empresa.nome }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">R$ {{ c.valor }}</h6>
+                    <p class="card-text ">
+                        <img src={{ c.empresa.imagem }} width="50px"> Cupom válido por 21 dias
+                    </p>
+                    <a href="#" class="card-link">comprar</a>
+                </div>
             </div>
         </div>
-        <br><br>
         {% endfor %}
-
+    </div>
 </div>
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo ao recicle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
