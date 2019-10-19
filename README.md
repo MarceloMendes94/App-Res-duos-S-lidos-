@@ -10,9 +10,9 @@
 # Project Model Canvas
 [Link para o PMC](Documentos/PMC.pdf)
 # Analysis Model Canvas
-[Link para o AMC](Documentos/AMC Canvas Analise.pdf)
+[Link para o AMC](Documentos/AMC_CanvasAnalise.pdf)
 # Design Model Canvas
-[Link para o DMC](Documentos/DMC Canvas Projeto.pdf)
+[Link para o DMC](Documentos/DMC_CanvasProjeto.pdf)
 # Diário de bordo
 [Link para o diário de bordo](DiarioDeBordo.md)
 # Diagrama de classes
