@@ -4,7 +4,7 @@ from core.models import Cliente, Cupom
 
 '''
 /principal/
-/motorista/
+/login/
     /motorista/cadastro/*
     /motorista/perfil/
     /motorista/perfil/editar/
@@ -13,7 +13,6 @@ from core.models import Cliente, Cupom
     /motorista/carteira/
     /motorista/resgate/
     
-/cliente/*
     /cliente/cadastro/*
     /cliente/perfil/*
     /cliente/perfil/editar/
@@ -56,6 +55,7 @@ def motorista(request):
 
 
 def motorista_cadastro(request):
+    form = FormMotorista(request.POST)
     if request.method == "POST":
         form = FormMotorista(request.POST)
         if form.is_valid():
@@ -63,7 +63,7 @@ def motorista_cadastro(request):
             post.save()
     else:
         form = FormMotorista(request.POST)
-    return render(request, 'core/cadastro_motoristas.html', {'form_motorista': form})
+    return render(request, 'core/cadastro_motoristas.html', {'form': form})
 
 
 # Redirecionador para tipo de cadastro

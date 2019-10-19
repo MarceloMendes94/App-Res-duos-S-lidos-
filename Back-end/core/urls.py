@@ -7,9 +7,8 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('motorista/', views.motorista, name='motorista'),
     path('motorista/cadastro/', views.motorista_cadastro, name='motorista_cadastro'),
-    path('cliente/', views.cliente, name='cliente'),
     path('cliente/cadastro/', views.cliente_cadastro, name='cliente_cadastro'),
-    #path('cadastro', views.cadastro, name='cadastro'),
+    path('cadastro', views.cadastro, name='cadastro'),
     path('cliente/perfil/', views.cliente_autenticado, name='perfil_cliente'),
     path('cliente/loja/', views.cliente_loja, name='loja'),
 ]

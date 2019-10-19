@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Cliente</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <style>
         label {
             display: block;
@@ -31,11 +31,25 @@
 </head>
 <body>
 
-<div class="container-fluid" style="background-color: #00994c; color: #E0E0E0;">
-    <h1>
-        REcicle
-    </h1>
-</div>
+    <!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+    <nav class="navbar navbar-light bg-light">
+        <!-- Logo -->
+        <a class="navbar-brand" href="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            reCicle
+        </a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link " href="/cadastro">Cadastre-se</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Entrar</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+
 <br>
 <div class="container">
     <div class="row">
@@ -45,7 +59,11 @@
                     <h2>Cadastro de Motorista</h2>
 
                     <form method="POST" class="post-form">{% csrf_token %}
-                        {{ form }}
+                        {% for i in form %}
+                        <label>{{i.label}}</label>
+                        {{ i }}
+                        <br><br>
+                        {% endfor %}
                         <br><br>
                         <button type="submit" class="btn btn-success">cadastro</button>
                         <br><br>
