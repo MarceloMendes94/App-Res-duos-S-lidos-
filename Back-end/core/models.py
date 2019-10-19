@@ -45,4 +45,23 @@ class Cliente(Usuario):
     cpf = models.CharField(max_length=11)
     nome_completo = models.TextField()
     tefefone = models.CharField(max_length=11)
-    data_nascimento = models.DateField()
+    data_nascimento = models.DateField(null=True)
+
+    def __str__(self):
+        return self.nome_completo
+
+
+class EmpresaCupom(models.Model):
+    nome = models.CharField(max_length=25)
+    imagem = models.TextField()
+
+    def __str__(self):
+        return self.nome
+
+
+class Cupom(models.Model):
+    empresa = models.ForeignKey(EmpresaCupom, on_delete=models.CASCADE)
+    valor = models.DecimalField(max_digits=4, decimal_places=2)
+
+    def __str__(self):
+        return self.empresa.nome + " " + str(self.valor)

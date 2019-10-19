@@ -1,10 +1,6 @@
 from django.shortcuts import render
-from .forms import FormMotorista
-from .forms import FormCliente
-from .forms import FormEndereco
+from .forms import FormMotorista, FormCliente, FormEndereco
 from core.models import Cliente
-#p = Dodavatel(nazov='Petr', dostupnost=1)
-#p.save()
 
 '''
 /principal/
@@ -52,8 +48,6 @@ def cadastro(request):
 
 
 # cliente
-
-
 def cliente(request):
     return render(request, 'core/cliente.html', {})
 
@@ -68,13 +62,11 @@ def cliente_cadastro(request):
         nome = (request.POST.get('nome_completo'))
         data = (request.POST.get('data_de_nascimento'))
         cpf_input = (request.POST.get('cpf'))
-        telefone_input= (request.POST.get('telefone'))
-        email_input= (request.POST.get('email'))
+        telefone_input = (request.POST.get('telefone'))
+        email_input = (request.POST.get('email'))
         senha_input = (request.POST.get('senha'))
-        clienteOBJ = Cliente(nome_completo=nome,cpf=cpf_input, tefefone=telefone_input,data_nascimento=data,email=email_input, senha=senha_input, endereco=end)
+        clienteOBJ = Cliente(nome_completo=nome, cpf=cpf_input, tefefone=telefone_input, data_nascimento=data,
+                             email=email_input, senha=senha_input, endereco=end)
         clienteOBJ.save()
-        #envio = form_cliente.save(commit=False)
-        #envio.endereco = end
-        #envio.save()
     return render(request, 'core/cadastro_clientes.html',
                   {'form_cliente': form_cliente, 'form_endereco': form_endereco})
