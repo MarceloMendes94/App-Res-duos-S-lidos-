@@ -98,6 +98,19 @@ def cliente_cadastro(request):
     return render(request, 'core/cadastro_clientes.html',
                   {'form_cliente': form_cliente, 'form_endereco': form_endereco})
 
+# Não funciona.. preciso receber os dados dele pelo request.. e n sei como q pegaria
+# def cliente_update(request):
+#     email_user = request.session['auth_email']
+#     senha_user = request.session['auth_senha']
+#     cliente = Cliente.objects.filter(senha=senha_user, email=email_user)
+#
+#     form = FormCliente(request.POST or None, instance=cliente)
+#
+#     if form.is_valid():
+#         form.save()
+#         return redirect('cliente')
+#
+#     return render(request,'cadastro_clientes.html',{'form': form, 'cliente':cliente})
 
 def cliente_autenticado(request):
     if request.session['auth_email'] != 0 and request.session['auth_senha'] != 0 and request.session['auth_tokken'] != 0:

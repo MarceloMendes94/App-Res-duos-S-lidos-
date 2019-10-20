@@ -13,7 +13,7 @@ class FormMotorista(forms.ModelForm):
         fields = ('habilitacao', 'placa', 'email', 'senha',)
 
 
-class FormCliente(Form):
+class FormCliente(forms.ModelForm):
     nome_completo = forms.CharField(widget=forms.TextInput(attrs={"id": "nome", "class": "form-Control"}))
     data_de_nascimento = forms.DateField(widget=forms.DateInput(attrs={"id": "data", "class": "form-Control", "type": "date"}))
     cpf = forms.CharField(widget=forms.TextInput(attrs={"id": "cpf", "class": "form-Control"}))
@@ -23,6 +23,7 @@ class FormCliente(Form):
 
     class Meta:
         model = Cliente
+        fields = ('nome_completo', 'data_de_nascimento', 'cpf' , 'telefone' , 'email' , 'senha' )
 
 
 class FormEndereco(forms.ModelForm):

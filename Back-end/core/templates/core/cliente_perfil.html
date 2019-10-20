@@ -43,15 +43,15 @@
                 <h5 class="card-title">Dados pessoais</h5>
                 <h6 class="card-subtitle mb-2 text-muted">aqui vc pode alterar suas informações</h6>
                 <p class="card-text"> Venha conhecer ! ! ! </p>
-                <a href="#">
+                <a href="{% url 'cliente_cadastro' %}"> <!-- era pra passar os dados dele pra esse form -->
                     <button type="button" class="btn btn-primary btn-block">Alterar</button>
                 </a>
             </div>
         </div>
     <div class="card" style="margin:10px;">
             <div class="card-body">
-                <h5 class="card-title">Agendar coleta</h5>
-                <h6 class="card-subtitle mb-2 text-muted"> Agende uma coleta para receber trash coins</h6>
+                <h5 class="card-title">Solicitar coleta</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> Solicite uma coleta para receber trash coins</h6>
                 <p class="card-text"> Venha conhecer ! ! ! </p>
                 <a href="#">
                     <button type="button" class="btn btn-primary btn-block">Coleta</button>
