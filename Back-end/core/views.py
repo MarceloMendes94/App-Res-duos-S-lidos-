@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin
 from core.models import Cliente, Cupom
+from django.contrib.auth import authenticate, login
 
 '''
 /principal/
@@ -95,6 +96,15 @@ def cliente_cadastro(request):
     return render(request, 'core/cadastro_clientes.html',
                   {'form_cliente': form_cliente, 'form_endereco': form_endereco})
 
+# def cliente_update(request, id):
+#     cliente = Cliente.objects.get(id=id)
+#     form = FormCliente(request.POST or None, instance=cliente)
+#
+#     if form.is_valid():
+#         form.save()
+#         return redirect('cliente')
+#
+#     return render(request,'/cadastro_clientes.html',{'form': form, 'cliente':cliente})
 
 def cliente_autenticado(request):
     # print(request.session['auth_email'])    print(request.session['auth_senha'])    print(request.session['auth_tokken'])
