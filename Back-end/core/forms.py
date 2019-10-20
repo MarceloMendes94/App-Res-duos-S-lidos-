@@ -37,10 +37,10 @@ class FormLogin(Form):
     senha = forms.CharField(widget=forms.TextInput(attrs={"type": "password", "class": "form-Control"}))
 
 
-class FormEmpresa(Form):
-    Razão_social = forms.CharField(widget=forms.TextInput(attrs={"id": "nome", "class": "form-Control"}))
+class FormEmpresa(Form): #porque vc poem "Form" Marcelo? ele nem ta usando esse parametro
+    razao_social = forms.CharField(widget=forms.TextInput(attrs={"id": "razao_social", "class": "form-Control"}))
     telefone = forms.CharField(widget=forms.TextInput(attrs={"id": "telefone", "class": "form-Control"}))
-    CNPJ = forms.CharField(widget=forms.TextInput(attrs={"id": "cnpj", "class": "form-Control"}))
+    cnpj = forms.CharField(widget=forms.TextInput(attrs={"id": "cnpj", "class": "form-Control"}))
 
     class Meta:
         model = EmpresaReciclagem

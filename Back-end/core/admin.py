@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Motorista, Endereco, Cliente, EmpresaCupom, Cupom,EmpresaReciclagem
+from .models import Motorista, Endereco, Cliente, EmpresaCupom, Cupom, EmpresaReciclagem
 
 admin.site.register(Motorista)
 admin.site.register(Cliente)

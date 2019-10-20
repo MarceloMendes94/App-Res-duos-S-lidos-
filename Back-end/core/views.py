@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin,FormEmpresa
-from core.models import Cliente, Cupom
+from core.models import Cliente, Cupom, EmpresaReciclagem
 from django.contrib.auth import authenticate, login
 
 '''
@@ -129,6 +129,18 @@ def cliente_loja(request):
 
 
 def empresa_cadastro(request):
+    form_empresa = FormEmpresa(request.POST)
     form_endereco = FormEndereco(request.POST)
-    form_empresa =  FormEmpresa(request.POST)
-    return render(request, 'core/cadastro_empresa.html', {'form_endereco':form_endereco,'form_empresa':form_empresa})
+
+    if form_empresa.is_valid() and form_endereco.is_valid():
+        form_endereco.save(commit=False)
+        end = form_endereco.save()
+        # Dados empresa
+        razao_social = (request.POST.get('razao_social'))
+        telefone = (request.POST.get('telefone'))
+        cnpj = (request.POST.get('cnpj'))
+
+        empresaOBJ = EmpresaReciclagem(razao_social=razao_social, cnpj=cnpj, telefone=telefone, endereco=end)
+        empresaOBJ.save()
+    return render(request, 'core/cadastro_empresa.html', {'form_empresa':form_empresa , 'form_endereco':form_endereco})
+

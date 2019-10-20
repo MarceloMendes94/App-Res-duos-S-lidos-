@@ -66,7 +66,7 @@ class Cupom(models.Model):
 class EmpresaReciclagem(models.Model):
     cnpj = models.CharField(max_length=14)
     razao_social = models.CharField(max_length=100)
-    tefefone = models.CharField(max_length=11)
+    telefone = models.CharField(max_length=11)
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
     def __str__(self):
