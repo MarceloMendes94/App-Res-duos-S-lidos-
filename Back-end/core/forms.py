@@ -4,6 +4,7 @@ from django.forms import Form
 from .models import Motorista
 from .models import Cliente
 from .models import Endereco
+from .models import EmpresaReciclagem
 
 
 class FormMotorista(forms.ModelForm):
@@ -33,3 +34,12 @@ class FormEndereco(forms.ModelForm):
 class FormLogin(Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={"id": "email", "class": "form-Control"}))
     senha = forms.CharField(widget=forms.TextInput(attrs={"type": "password", "class": "form-Control"}))
+
+
+class FormEmpresa(Form):
+    Razão_social = forms.CharField(widget=forms.TextInput(attrs={"id": "nome", "class": "form-Control"}))
+    telefone = forms.CharField(widget=forms.TextInput(attrs={"id": "telefone", "class": "form-Control"}))
+    CNPJ = forms.CharField(widget=forms.TextInput(attrs={"id": "cnpj", "class": "form-Control"}))
+
+    class Meta:
+        model = EmpresaReciclagem

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+<nav class="navbar navbar-light bg-light">
+    <!-- Logo -->
+    <a class="navbar-brand" href="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+             width="30" height="30" class="d-inline-block align-top" alt="">
+        reCicle
+    </a>
+
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <div class="card  shadow p-3 mb-5 bg-white rounded">
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        <h4> dados de localização</h4>
+                        {% for end in form_endereco %}
+                        {{end.label}}<br>
+                        {{end}}<br>
+                        {% endfor %}
+                        <br>
+                        <h4> dados da empresa</h4>
+                        {% for emp in form_empresa %}
+                        {{emp.label}}<br>
+                        {{emp}}<br>
+                        {% endfor %}<br>
+                        <button type="submit" class="btn btn-success">cadastro</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

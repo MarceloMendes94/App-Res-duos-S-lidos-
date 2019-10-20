@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin
+from .forms import FormMotorista, FormCliente, FormEndereco, FormLogin,FormEmpresa
 from core.models import Cliente, Cupom
 from django.contrib.auth import authenticate, login
 
@@ -19,7 +19,9 @@ from django.contrib.auth import authenticate, login
     /cliente/perfil/editar/
     /cliente/agendar/
     /cliente/carteira/
-    /cliente/loja/*    
+    /cliente/loja/*
+    
+    /empresa/cadastro/    
 '''
 
 
@@ -96,18 +98,8 @@ def cliente_cadastro(request):
     return render(request, 'core/cadastro_clientes.html',
                   {'form_cliente': form_cliente, 'form_endereco': form_endereco})
 
-# def cliente_update(request, id):
-#     cliente = Cliente.objects.get(id=id)
-#     form = FormCliente(request.POST or None, instance=cliente)
-#
-#     if form.is_valid():
-#         form.save()
-#         return redirect('cliente')
-#
-#     return render(request,'/cadastro_clientes.html',{'form': form, 'cliente':cliente})
 
 def cliente_autenticado(request):
-    # print(request.session['auth_email'])    print(request.session['auth_senha'])    print(request.session['auth_tokken'])
     if request.session['auth_email'] != 0 and request.session['auth_senha'] != 0 and request.session['auth_tokken'] != 0:
         return render(request, 'core/cliente_perfil.html', {})
     else:
@@ -121,3 +113,9 @@ def cliente_loja(request):
     result = Cupom.objects.all()
     print(result)
     return render(request, 'core/cliente_loja.html', {"result": result})
+
+
+def empresa_cadastro(request):
+    form_endereco = FormEndereco(request.POST)
+    form_empresa =  FormEmpresa(request.POST)
+    return render(request, 'core/cadastro_empresa.html', {'form_endereco':form_endereco,'form_empresa':form_empresa})

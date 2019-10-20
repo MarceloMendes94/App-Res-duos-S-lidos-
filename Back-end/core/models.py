@@ -1,9 +1,5 @@
 from django.db import models
 
-'''
-
-'''
-
 
 class Estado(models.Model):
     sigla = models.CharField(max_length=2)
@@ -65,3 +61,13 @@ class Cupom(models.Model):
 
     def __str__(self):
         return self.empresa.nome + " " + str(self.valor)
+
+
+class EmpresaReciclagem(models.Model):
+    cnpj = models.CharField(max_length=14)
+    razao_social = models.CharField(max_length=100)
+    tefefone = models.CharField(max_length=11)
+    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.razao_social + " " + self.cnpj
