@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from .forms import ClienteForm,EnderecoForm, loginForm 
 from .models import Endereco, Carteira,Cliente
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def principal(request):
@@ -20,8 +21,19 @@ def cadastro_cliente(request):
         endereco = _instanciarEndereco(request)
         endereco.save()
         cliente = _instanciarCliente(request,carteira,endereco)
-        cliente.save()        
-        #redimensionar  para pagina de login                   
+        cliente.save()
+
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('password')
+
+        # print('criando usuario')
+        # user = User.objects.create_user(name=nome,email= email, password=senha)
+        # print(user)
+        # print('Salvando')
+        # user.save()
+
+        #redimensionar  para pagina de login
     return render(request,'Aplicacao/cadastro_cliente.html',{'formulario_endereco':formulario_endereco , 'formulario_cliente':formulario_cliente })            
 
 def login(request):
@@ -29,7 +41,17 @@ def login(request):
     if request.method=='POST':
         username = request.POST['email']
         password = request.POST['password']
+        print('username: ',username)
+        print('password: ',password)
 
+        user = authenticate(username= username, password = password)
+        print(user)
+        if user is not None:
+            print("acho q deu boa")
+            login(request,user)
+        else:
+            print("DEU NAO")
+            messages.error(request,"usuario ou senha invalidos.")
         
     return render(request,'Aplicacao/login.html',{'form':form})
 
