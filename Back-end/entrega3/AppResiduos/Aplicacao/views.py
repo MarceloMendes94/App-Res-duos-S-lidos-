@@ -3,6 +3,7 @@ from django.contrib.auth            import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models                        import Carteira, User, Cliente, Endereco
 from .forms                         import ClienteForm, EnderecoForm 
+from .factory                       import *
 
 def index(request):
     return render(request,'index.html')
@@ -25,14 +26,15 @@ def cliente_cadastro(request):
         numero      = request.POST.get('numero')
         referencia  = request.POST.get('referencia')
         #construindo objetos
-        end         = _endereco(estado,cep,cidade,bairro,logradouro,numero,referencia)        
-        end.save()
-        carteira    = _carteira()
-        carteira.save()
-        usuario     = _usuario(nome,sobrenome,email,senha)
-        usuario.save()
-        cliente     = Cliente(usuario=usuario,carteira=carteira,endereco=end)
-        cliente.save()
+        #end         = _endereco(estado,cep,cidade,bairro,logradouro,numero,referencia)        
+        #end.save()
+        #carteira    = _carteira()
+        #carteira.save()
+        #usuario     = _usuario(nome,sobrenome,email,senha)
+        #usuario.save()
+        #cliente     = Cliente(usuario=usuario,carteira=carteira,endereco=end)
+        #cliente.save()
+        #fabricaUsuario(escolha,nome,sobrenome,email,senha,estado,cep,cidade,bairro,logradouro,numero,referencia,cpf_hab_cnpj)
     return render(request,'cliente_cadastro.html',{'clienteform':clienteform,'enderecoform':enderecoform})
 
 def login_page(request):
