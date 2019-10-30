@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from .models import *
 
 
@@ -5,14 +6,20 @@ def fabricaUsuario(escolha,nome,sobrenome,email,senha,estado,cep,cidade,bairro,l
     end = builderEndereco(estado,cep,cidade,bairro,logradouro,numero,referencia)
     user = builderUsuario(nome,sobrenome,email,senha)
     carteira = builderCarteira()
-        
-def builderCliente:
-    cliente  = Cliente(usuario=usuario,carteira=carteira,endereco=end)
+    
+    if(escolha==1):
+        builderCliente(usuario=user,carteira=carteira,endereco=end)
+
+
+
+
+def builderCliente(usuario,carteira,endereco):
+    cliente  = Cliente(usuario=usuario,carteira=carteira,endereco=endereco)
     cliente.save()
     
-def builderMotorista:
+#def builderMotorista():
 
-def builderEmpresa:
+#def builderEmpresa():
 
 def builderEndereco(estado,cep,cidade,bairro,logradouro,numero,referencia):
     end=Endereco(sigla=estado,cep=cep,nome_cidade=cidade,nome_bairro=bairro,logradouro=logradouro,numero=numero,referencia=referencia)

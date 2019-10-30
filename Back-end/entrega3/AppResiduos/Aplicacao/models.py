@@ -31,9 +31,14 @@ class Endereco(Bairro):   # cep e estado com mascara no html
 
 # INICIO da estrutura de carteira
 #IMPLEMENTAR O METODO DE RETIRARTRASHCOIN
-#COLOCAR O TIPOCARTEIRADOUSUARIO... SE FOR DE MOTORISTA, O METODO RETIRARTRASHCOIN É HABILITADO... SE FOR DE EMPRESA, A CARTEIRA É NULA... SE FOR CLIENTE, O METODO RETIRARTRASHCOIN É DESABILITADO
+# COLOCAR O TIPOCARTEIRADOUSUARIO... 
+# SE FOR DE MOTORISTA, O METODO RETIRARTRASHCOIN É HABILITADO...
+# SE FOR DE EMPRESA, A CARTEIRA É NULA...
+# SE FOR CLIENTE, O METODO RETIRARTRASHCOIN É DESABILITADO
 class Carteira(models.Model):
-    saldo = models.DecimalField(decimal_places=2, max_digits=8)
+    opcoes      = (('m','Motorista'),('c','Cliente'))
+    
+    saldo       = models.DecimalField(decimal_places=2, max_digits=8)
     def __str__(self):
         return str(self.saldo)
 # FIM da estrutura de carteira
@@ -48,3 +53,4 @@ class Cliente(models.Model):
     def __str__(self):
         return self.usuario.email
 # FIM da estrutura de cliente
+

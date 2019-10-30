@@ -34,7 +34,7 @@ def cliente_cadastro(request):
         #usuario.save()
         #cliente     = Cliente(usuario=usuario,carteira=carteira,endereco=end)
         #cliente.save()
-        #fabricaUsuario(escolha,nome,sobrenome,email,senha,estado,cep,cidade,bairro,logradouro,numero,referencia,cpf_hab_cnpj)
+        fabricaUsuario(escolha=1,nome=nome,sobrenome=sobrenome,email=email,senha=senha,estado=estado,cep=cep,cidade=cidade,bairro=bairro,logradouro=logradouro,numero=numero,referencia=referencia,cpf_hab_cnpj=1)
     return render(request,'cliente_cadastro.html',{'clienteform':clienteform,'enderecoform':enderecoform})
 
 def login_page(request):
