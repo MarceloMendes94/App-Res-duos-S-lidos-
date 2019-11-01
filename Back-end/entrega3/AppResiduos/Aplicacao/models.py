@@ -54,3 +54,35 @@ class Cliente(models.Model):
         return self.usuario.email
 # FIM da estrutura de cliente
 
+class Motorista(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    habilitacao = models.CharField(max_length=11)
+    placa = models.CharField(max_length=7)
+
+    def __str__(self):
+        return self.usuario.email
+
+class Empresa(models.Model):
+    # se empresa tiver usuario tbm adiciona aqui o user
+    cnpj = models.CharField(max_length=14)
+    razao_social = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=11)
+    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.razao_social + " " + self.cnpj
+
+class EmpresaCupom(models.Model):
+    nome = models.CharField(max_length=25)
+    imagem = models.TextField()
+
+    def __str__(self):
+        return self.nome
+
+class Cupom(models.Model):
+    empresa = models.ForeignKey(EmpresaCupom, on_delete=models.CASCADE)
+    valor = models.DecimalField(max_digits=4, decimal_places=2)
+
+    def __str__(self):
+        return self.empresa.nome + " " + str(self.valor)
+

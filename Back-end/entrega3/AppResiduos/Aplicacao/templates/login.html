@@ -1,33 +1,86 @@
-<html>
-    <head>
-        <title> Cadastro de Colaborador</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
         {% load static %}
-        <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    </head>
-    <body>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        label {
+            display: block;
+            width: 150px;
+            margin-left: 5%;
+        }
 
-        <nav class="navbar navbar-light bg-light">
-            <!-- Logo -->
-            <a class="navbar-brand" href="../../">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
-                     width="30" height="30" class="d-inline-block align-top" alt="">
-                reCicle
-            </a>
-        
-        </nav>
+        input, textarea {
+            margin-left: 5%;
+            width: 90%;
+            height: 36px;
+        }
 
+        button {
+            display: flex;
+            justify-content: center;
+        }
 
-<form method="POST" action='submit'>{% csrf_token %}
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        li {
+            list-style-type: none;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+    <nav class="navbar navbar-light bg-light">
+        <!-- Logo -->
+        <a class="navbar-brand" href="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            reCicle
+        </a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link " href="/cadastro">Cadastre-se</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Entrar</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <div class="card  shadow p-3 mb-5 bg-white rounded">
+                    <h2>Login no Sistema</h2>
+                    <form method="POST" action='submit'>{% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                    </div>
+                    {% for message in messages %}
+                      <div class="alert alert-danger">
+                          <strong>ERROR!</strong> {{message}}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="password" name='password' placeholder="Password">
-    </div>
-  
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+
+</div>
+<br><br><br>
 </body>
+</html>

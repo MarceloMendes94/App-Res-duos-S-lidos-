@@ -35,6 +35,9 @@ class Motorista(Usuario):
     habilitacao = models.CharField(max_length=11)
     placa = models.CharField(max_length=7)
 
+    def __str__(self):
+        return self.habilitacao
+
 
 class Cliente(Usuario):
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
