@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-# documentação https://docs.djangoproject.com/en/2.2/topics/db/models/
 # INICIO da estrutura de endereço        
 class Estado(models.Model):
     sigla = models.CharField(max_length=2)
@@ -28,49 +26,50 @@ class Endereco(Bairro):   # cep e estado com mascara no html
         return self.cep+" "+self.numero+" "+self.nome_bairro
 # FIM da estrutura de endereço  
 
-
-# INICIO da estrutura de carteira
-#IMPLEMENTAR O METODO DE RETIRARTRASHCOIN
-# COLOCAR O TIPOCARTEIRADOUSUARIO... 
-# SE FOR DE MOTORISTA, O METODO RETIRARTRASHCOIN É HABILITADO...
-# SE FOR DE EMPRESA, A CARTEIRA É NULA...
-# SE FOR CLIENTE, O METODO RETIRARTRASHCOIN É DESABILITADO
+#INICIO DA CARTEIRA
 class Carteira(models.Model):
-    opcoes      = (('m','Motorista'),('c','Cliente'))
-    
+    opcoes      = (('m','Motorista'),('c','Cliente'))    
     saldo       = models.DecimalField(decimal_places=2, max_digits=8)
     def __str__(self):
         return str(self.saldo)
 # FIM da estrutura de carteira
 
-
-# documentação sobre tipo USER https://docs.djangoproject.com/en/2.2/ref/contrib/auth/
 # INICIO da estrutura de cliente
 class Cliente(models.Model):
     usuario =  models.ForeignKey(User,on_delete=models.CASCADE)
     carteira = models.ForeignKey(Carteira,on_delete=models.CASCADE)
     endereco = models.ForeignKey(Endereco,on_delete=models.CASCADE)
+    cpf = models.CharField(max_length=11)
     def __str__(self):
         return self.usuario.email
 # FIM da estrutura de cliente
 
 class Motorista(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    carteira = models.ForeignKey(Carteira,on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco,on_delete=models.CASCADE)
     habilitacao = models.CharField(max_length=11)
     placa = models.CharField(max_length=7)
 
     def __str__(self):
         return self.usuario.email
 
+#INICIO EMPRESA DE COLETA
 class Empresa(models.Model):
-    # se empresa tiver usuario tbm adiciona aqui o user
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14)
     razao_social = models.CharField(max_length=100)
     telefone = models.CharField(max_length=11)
-    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.razao_social + " " + self.cnpj
+#FIM EMPRESA DE COLETA
+
+
+
+
+
 
 class EmpresaCupom(models.Model):
     nome = models.CharField(max_length=25)
@@ -85,4 +84,3 @@ class Cupom(models.Model):
 
     def __str__(self):
         return self.empresa.nome + " " + str(self.valor)
-
