@@ -1,4 +1,5 @@
 from .models import *
+from django.contrib.auth.models import User
 
 def DiretorEmpresa(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cnpj,razao_social,telefone)
     user = builderUsuario(nome,sobrenome,email,senha)
@@ -10,7 +11,7 @@ def DiretorMotorista(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logrado
     user = builderUsuario(nome, sobrenome, email, senha)
     end = builderEndereco(estado, cep, cidade, bairro, logradouro, numero, referencia)
     carteira = builderCarteira()
-    motorista = builderMotorista(nome,end,habilitacao,placa,carteira)
+    motorista = builderMotorista(user,end,habilitacao,placa,carteira)
 
 
 def DiretorCliente(nome, sobrenome, senha, email, estado, cep, cidade, bairro, logradouro, numero, referencia, cpf, data_nascimento)
