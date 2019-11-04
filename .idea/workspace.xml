@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec83b3a7-d48d-4e3c-b1c7-06e4ee040f1a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cliente_cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cliente_cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/algoritmo_genetico_table.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/algoritmo_genetico_table.xls" afterDir="false" />
     </list>
@@ -23,14 +15,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48229495">
+    <splitter split-orientation="horizontal" split-proportion="0.9">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="430">
-                  <caret line="102" column="20" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="20" />
+                <state relative-caret-position="1630">
+                  <caret line="131" selection-start-line="131" selection-end-line="131" />
                   <folding>
                     <element signature="e#0#58#0" expanded="true" />
                   </folding>
@@ -38,44 +30,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="25" column="17" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="17" />
-                  <folding>
-                    <element signature="e#0#24#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cliente_cadastro.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="49" column="47" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="47" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="884">
+                  <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+                <state relative-caret-position="300">
+                  <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="19" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -83,77 +51,18 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/empresa_cadastro.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-408" />
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/templates/core/cliente_loja.html">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/templates/core/cadastro.html">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="59" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="126" column="17" lean-forward="true" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
-                  <folding>
-                    <element signature="e#0#45#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/forms.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="25" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#24#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/models.py">
+            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="430">
-                  <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+                <state relative-caret-position="369">
+                  <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -166,6 +75,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -189,7 +99,6 @@
         <option value="$PROJECT_DIR$/projeto_autenticacao/AppResiduos/Aplicacao/forms.py" />
         <option value="$PROJECT_DIR$/projeto_autenticacao/AppResiduos/Aplicacao/views.py" />
         <option value="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/AG Vitor(The best).py" />
-        <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/index.html" />
         <option value="$PROJECT_DIR$/projeto_autenticacao/AppResiduos/Aplicacao/templates/Aplicacao/login.html" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/login.html" />
@@ -201,13 +110,15 @@
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" />
+        <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py" />
+        <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="666" />
-    <option name="y" value="-23" />
+    <option name="x" value="221" />
+    <option name="y" value="-16" />
     <option name="width" value="1026" />
     <option name="height" value="546" />
   </component>
@@ -217,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,36 +139,6 @@
               <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
               <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
               <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega 2 DESATUALIZADO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega 2 DESATUALIZADO" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega 2 DESATUALIZADO" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega 2 DESATUALIZADO" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
@@ -280,6 +160,15 @@
               <item name="entrega3" type="462c0819:PsiDirectoryNode" />
               <item name="AppResiduos" type="462c0819:PsiDirectoryNode" />
               <item name="Aplicacao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
+              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="entrega3" type="462c0819:PsiDirectoryNode" />
+              <item name="AppResiduos" type="462c0819:PsiDirectoryNode" />
+              <item name="Aplicacao" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
@@ -337,6 +226,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,9 +264,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12096139" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1845238" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -387,7 +278,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3575298" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.1898527" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -396,109 +287,21 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/base.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_motoristas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="56" column="30" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cliente_perfil.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="45" column="103" selection-start-line="45" selection-start-column="103" selection-end-line="45" selection-end-column="103" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_empresa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="50" column="50" lean-forward="true" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/base.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_motoristas.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/login.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cliente_perfil.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/index.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/apps.py" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/admin.py" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_empresa.html" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/urls.py" />
     <entry file="file://$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/busca_a.py" />
-    <entry file="file://$PROJECT_DIR$/Back-end/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_clientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/core/views.py" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/models.py" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/forms.py" />
+    <entry file="file://$PROJECT_DIR$/Back-end/core/templates/core/cadastro_clientes.html" />
     <entry file="file://$PROJECT_DIR$/projeto_autenticacao/AppResiduos/AppResiduos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -548,16 +351,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/AG Vitor(The best).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/AG Vitor(The best).py" />
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -565,13 +359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-499">
           <caret line="20" column="44" lean-forward="true" selection-end-line="88" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -643,9 +430,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro_clientes.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro_clientes.html" />
     <entry file="file://$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -658,20 +443,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cadastro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="629">
           <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/empresa_cadastro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/templates/cliente_cadastro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="49" column="47" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="47" />
+        <state relative-caret-position="385">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -694,7 +477,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="374">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="17" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -702,10 +485,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="55" column="15" lean-forward="true" selection-start-line="37" selection-end-line="55" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        <state relative-caret-position="369">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -714,8 +507,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="102" column="20" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="20" />
+        <state relative-caret-position="1630">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
@@ -724,11 +517,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        <state relative-caret-position="300">
+          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="19" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
         </state>
       </provider>
     </entry>

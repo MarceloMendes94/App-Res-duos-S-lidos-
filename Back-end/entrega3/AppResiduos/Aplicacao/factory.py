@@ -24,6 +24,8 @@ from .models import *
 # 		return end
 #
 #
+
+    
 def fabricaUsuario(escolha,nome,sobrenome,email,senha,estado,cep,cidade,bairro,logradouro,numero,referencia,cpf_hab_cnpj):
     end = builderEndereco(estado,cep,cidade,bairro,logradouro,numero,referencia)
     user = builderUsuario(nome,sobrenome,email,senha)
