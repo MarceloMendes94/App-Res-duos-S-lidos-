@@ -26,56 +26,12 @@ def cliente_cadastro(request):
         bairro      = request.POST.get('bairro')
         logradouro  = request.POST.get('logradouro')
         numero      = request.POST.get('numero')
-        referencia  = request.POST.get('referencia')        
-        fabricaUsuario(escolha=1,nome=nome,sobrenome=sobrenome,email=email,senha=senha,estado=estado,cep=cep,cidade=cidade,bairro=bairro,logradouro=logradouro,numero=numero,referencia=referencia,cpf_hab_cnpj=1)
+        referencia  = request.POST.get('referencia')
+        #FIELDS CLIENTE
+        cpf  = request.POST.get('cpf')
+        data_nascimento  = request.POST.get('data_nascimento')        
+        DiretorCliente(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cpf,data_nascimento)
     return render(request,'cliente_cadastro.html',{'clienteform':clienteform,'enderecoform':enderecoform})
-
-def login_page(request):
-    return render(request,'login.html')
-
-
-def login_submit(request):
-    if request.POST:
-        user = authenticate(username=request.POST.get('email'),password=request.POST.get('password') )
-        if user is not None:
-            login(request, user)
-            request.session['email'] = user.email      
-            return redirect('/cliente/perfil/')
-        else:
-            messages.error(request, "usuario ou senha invalidos.")
-
-    return render(request,'login.html')
-
-def logout_user(request):
-    print(request.user)
-    logout(request)
-    return redirect('/login/')
-
-@login_required(login_url='/login/')
-def cliente_perfil(request):
-    result=User.objects.filter(email=request.session['email'])
-    nome=result[0].first_name
-    return render(request,'cliente_perfil.html',{'nome':nome})
-
-#@login_required(login_url='/login/')
-def agendamento_cadastro(request):
-    if request.POST:
-        print(request.POST.get('dia'))
-        print(request.POST.get('time'))
-    return render(request,'agendamento_cadastro.html')
-
-
-
-
-
-
-
-
-
-
-# Redirecionador para tipo de cadastro
-def cadastro(request):
-    return render(request, 'cadastro.html', {})
 
 # motorista
 def motorista_cadastro(request):
@@ -126,6 +82,49 @@ def empresa_cadastro(request):
         #diretor
         DiretorEmpresa(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cnpj,razao_social,telefone)
     return render(request, 'empresa_cadastro.html', {'form_empresa': empresaform, 'enderecoform': enderecoform})
+
+
+
+
+
+def login_page(request):
+    return render(request,'login.html')
+
+
+def login_submit(request):
+    if request.POST:
+        user = authenticate(username=request.POST.get('email'),password=request.POST.get('password') )
+        if user is not None:
+            login(request, user)
+            request.session['email'] = user.email      
+            return redirect('/cliente/perfil/')
+        else:
+            messages.error(request, "usuario ou senha invalidos.")
+
+    return render(request,'login.html')
+
+def logout_user(request):
+    print(request.user)
+    logout(request)
+    return redirect('/login/')
+
+@login_required(login_url='/login/')
+def cliente_perfil(request):
+    result=User.objects.filter(email=request.session['email'])
+    nome=result[0].first_name
+    return render(request,'cliente_perfil.html',{'nome':nome})
+
+#@login_required(login_url='/login/')
+def agendamento_cadastro(request):
+    if request.POST:
+        print(request.POST.get('dia'))
+        print(request.POST.get('time'))
+    return render(request,'agendamento_cadastro.html')
+
+
+# Redirecionador para tipo de cadastro
+def cadastro(request):
+    return render(request, 'cadastro.html', {})
 
 # cliente
 def cliente(request):
