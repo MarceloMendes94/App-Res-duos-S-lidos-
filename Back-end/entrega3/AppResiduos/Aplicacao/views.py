@@ -3,7 +3,7 @@ from django.contrib.auth            import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models                        import Carteira, User, Cliente, Endereco
 from .forms                         import ClienteForm, EnderecoForm, MotoristaForm, EmpresaForm
-from .factory                       import *
+from .builder                       import DiretorCliente,DiretorEmpresa,DiretorMotorista
 from django.contrib                 import messages
 from django.views.decorators.csrf import csrf_protect
 
