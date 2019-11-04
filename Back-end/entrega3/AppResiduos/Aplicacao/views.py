@@ -81,12 +81,50 @@ def cadastro(request):
 def motorista_cadastro(request):
     motoristaform = MotoristaForm()
     enderecoform = EnderecoForm()
+    if request.POST:
+        #fields USER
+        nome        = request.POST.get('nome')
+        sobrenome   = request.POST.get('sobrenome')
+        senha       = request.POST.get('password')
+        email       = request.POST.get('email')
+        #fields ENDERECO
+        estado      = request.POST.get('estado')
+        cep         = request.POST.get('cep')
+        cidade      = request.POST.get('cidade')
+        bairro      = request.POST.get('bairro')
+        logradouro  = request.POST.get('logradouro')
+        numero      = request.POST.get('numero')
+        referencia  = request.POST.get('referencia')        
+        #fields MOTORISTA
+        habilitacao = request.POST.get('habilitacao')
+        placa = request.POST.get('placa')
+        DiretorMotorista(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,habilitacao,placa)
     return render(request, 'motorista_cadastro.html', {'motoristaform': motoristaform, 'enderecoform': enderecoform})
 
-# motorista
+# empresa
 def empresa_cadastro(request):
     empresaform = EmpresaForm()
     enderecoform = EnderecoForm()
+    if request.POST:
+        #fields USER
+        nome        = request.POST.get('nome')
+        sobrenome   = request.POST.get('sobrenome')
+        senha       = request.POST.get('password')
+        email       = request.POST.get('email')
+        #fields ENDERECO
+        estado      = request.POST.get('estado')
+        cep         = request.POST.get('cep')
+        cidade      = request.POST.get('cidade')
+        bairro      = request.POST.get('bairro')
+        logradouro  = request.POST.get('logradouro')
+        numero      = request.POST.get('numero')
+        referencia  = request.POST.get('referencia')        
+        #fields EMPRESA
+        cnpj  = request.POST.get('cnpj')        
+        razao_social  = request.POST.get('razao_social')        
+        telefone  = request.POST.get('telefone')        
+        #diretor
+        DiretorEmpresa(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cnpj,razao_social,telefone)
     return render(request, 'empresa_cadastro.html', {'form_empresa': empresaform, 'enderecoform': enderecoform})
 
 # cliente
