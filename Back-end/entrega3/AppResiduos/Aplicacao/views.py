@@ -15,8 +15,8 @@ def cliente_cadastro(request):
     enderecoform = EnderecoForm()
     if request.POST:
         #user fields
-        nome        = request.POST.get('nome')
-        sobrenome   = request.POST.get('sobrenome')
+        nome_completo        = request.POST.get('nome_completo')
+        # sobrenome   = request.POST.get('sobrenome')
         senha       = request.POST.get('password')
         email       = request.POST.get('email')
         #endereco fields
