@@ -16,71 +16,136 @@ class Estado(models.Model):
     def __str__(self):
         return self.sigla
 
+
 class Cidade(Estado):
-    nome_cidade = models.CharField(max_length=35)
+    nome_cidade = models.CharField(max_length=35, help_text='Informe a cidade onde reside.\nExemplo: Serra')
 
     def __str__(self):
-
         return self.nome_cidade
 
+
 class Bairro(Cidade):
-    nome_bairro = models.CharField(max_length=35)
+    nome_bairro = models.CharField(max_length=35, help_text='Informe o bairro onde reside.\nExemplo: Manguinhos')
 
     def __str__(self):
         return self.nome_bairro
 
+
 class Endereco(Bairro):   # cep e estado com mascara no html
-    logradouro = models.TextField()
-    cep        = models.CharField(max_length=8)
-    numero     = models.CharField(max_length=4)
-    referencia = models.TextField()
+    logradouro = models.CharField(max_length=30, help_text='Exemplo: Alameda, área, avenida, campo, chácara')
+    cep        = models.CharField(max_length=8, help_text='Informe o CEP sem caractéres especiais')
+    numero     = models.CharField(max_length=4, help_text='Número da residência ou local')
+    referencia = models.CharField(max_length=50, help_text='Exemplo: Prédio João Maria, apartamento 201')
 
     def __str__(self):
         return self.cep+" "+self.numero+" "+self.nome_bairro
-# FIM da estrutura de endereço  
+# FIM da estrutura de endereço
+
 
 class Pessoa(models.Model):
-    nome_completo = models.CharField(max_length=100)
-    cpf           = models.CharField(max_length=14)
-    dt_nascimento = models.DateField()
+    nome_completo = models.CharField(max_length=255, help_text='Informe o seu nome completo')
+    cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
+    dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
+
+    #Pessoa depende de Endereço para existir no sistema
+    endereco      = models.OneToOneField(Endereco)
 
     def __str__(self):
-        return self.nome_completo +" "+ self.cpf
+        return "CPF"+self.cpf
 
-class Usuario(Pessoa):
-    email = models.EmailField(max_length=50)
-    senha = models.CharField(max_length=12)
+
+class Usuario(models.Model):
+    email = models.EmailField(max_length=255, help_text='Informe o seu email, ele será o seu login de acesso')
+    senha = models.CharField(max_length=12, help_text='Informe uma senha de até 12 caractéres')
+
+    #uma pessoa existe sem usuario, mas um usuario nao existe sem pessoa
+    #ou seja, usuario depende de pessoa
+    pessoa = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
 
     def __str__(self):
         return "Login:" + self.email
 
+
 class Cliente(Usuario):
+    pass
 
     def __str__(self):
         return "Login Cliente:" + self.email
 
+class Empresa(models.Model):
+    cnpj = models.CharField(max_length=14)
+    razao_social = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=11)
+
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 class Motorista(Usuario):
-    placa       = models.CharField(max_length=8)
-    nada_consta = models.BooleanField(None)
+    pass
+
+    def __str__(self):
+        return "Login Motorista:" + self.email
 
 
 class Habilitacao(models.Model):
-    numero   = models.CharField(max_length=14)
-    tipo     = models.CharField(max_length=5)
-    validade = models.DateField()
+    numero    = models.CharField(max_length=14)
+    tipo      = models.CharField(max_length=5) #pode ser choices field
+    validade  = models.DateField()
+
+    #Habilitacao é dependente de motorista
+    motorista = models.OneToOneField(Motorista, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Habilitacao"+self.numero
+        return "Habilitacao" + self.numero
 
-#INICIO DA CARTEIRA
+
+class ContaBanco(models.Model):
+    numero_conta = models.DecimalField(help_text='Informe o número da conta para depósito de pagamentos.')
+    agencia      = models.DecimalField(help_text='Informe o número da sua agencia.')
+    tipo_conta   = models.DecimalField(help_text='Informe o número identificador do tipo de conta.\nExemplo: 500 para poupança.')
+
+    #ContaBanco é dependente de motorista
+    motorista    = models.OneToOneField(Motorista, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Conta bancária:" + self.numero_conta
+
+
 class Carteira(models.Model):
-    opcoes      = (('m','Motorista'),('c','Cliente'))    
-    saldo       = models.DecimalField(decimal_places=2, max_digits=8)
+    TIPO_CARTEIRA = [('Cliente', 'Cliente'), ('Motorista', 'Motorista')]
+    tipo_carteira = models.CharField(max_length=9, choices=TIPO_CARTEIRA)
+
+    #saldoReal pode ficar em branco se a cateira for de cliente, pq ele não tem reais, apenas trashcoin e cupom
+    saldoReal    = models.DecimalField(decimal_places=2, max_digits=8, blank=True)
+
+    #Carteira nao existe sem Usuario
+    #Atenção ao construir uma carteira para usuário, pois existem tipos e o usario Empresa não tem carteira
+    usuario      = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return str(self.saldo)
-# FIM da estrutura de carteira
+        return str(self.saldoReal)
 
+
+class TrashCoin(models.Model):
+    taxa  = models.DecimalField(decimal_places=2, max_digits=3)
+    saldo = models.IntegerField()
+
+    def __str__(self):
+        return self.saldo
+
+class Cupom(models.Model):
+    titulo    = models.CharField(max_length=30)
+    SERVICO   = [('Netflix', 'Netflix'), ('Spotify', 'Spotify'), ('Uber', 'Uber')]
+    servico   = models.CharField(max_length=7, choices=SERVICO)
+    descricao = models.TextField(max_length=1000)
+    valor     = models.IntegerField()
+
+    #relacionamento 1xNm 1 carteira pode ter varios cupons diferentes
+    carteira = models.ForeignKey(Carteira)
+
+    def __str__(self):
+        return "Cupom:" + self.servico + " de " + self.valor
+
+'''
 # INICIO da estrutura de cliente
 class Cliente(models.Model):
     usuario =  models.ForeignKey(User,on_delete=models.CASCADE)
@@ -114,12 +179,8 @@ class Empresa(models.Model):
     def __str__(self):
         return self.razao_social + " " + self.cnpj
 #FIM EMPRESA DE COLETA
-
-
-
-
-
-
+'''
+'''
 class EmpresaCupom(models.Model):
     nome = models.CharField(max_length=25)
     imagem = models.TextField()
@@ -132,4 +193,4 @@ class Cupom(models.Model):
     valor = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __str__(self):
-        return self.empresa.nome + " " + str(self.valor)
+        return self.empresa.nome + " " + str(self.valor)'''
