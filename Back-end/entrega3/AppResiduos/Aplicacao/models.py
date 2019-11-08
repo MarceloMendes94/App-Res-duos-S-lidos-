@@ -1,16 +1,50 @@
-from django.db import models
-from django.contrib.auth.models import User
-
 #Referencias
 #https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/Models
+#https://www.youtube.com/watch?v=2KqhBkMv7aM
+#https://www.youtube.com/watch?v=IJUYdnLvK-A
 
 #Modelo de classe base
 #https://www.lucidchart.com/documents/edit/7f4db886-7f9f-4c77-a858-5c4e38aad54a/YGcM5DNywbTK?shared=true
 
-# INICIO da estrutura de endereço        
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class Empresa(models.Model):
+    cnpj = models.CharField(max_length=14)
+    razao_social = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=11)
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+
+    def __str__(self):
+        return self.user.name
+
+class InfoAdicional(models.Model):
+    cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
+    dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
+
+    user          = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.cpf
+
+class Cliente(User):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, parent_link=True, default=None)
+
+    def __str__(self):
+        return "Login Cliente:" + self.email
+
+
+class Motorista(User):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, parent_link=True, default=None)
+
+    def __str__(self):
+        return "Login Motorista:" + self.email
+
+
+# INICIO da estrutura de endereço
 class Estado(models.Model):
-    #da pra usar choices aqui
-    #consulte: https://docs.djangoproject.com/en/2.1/ref/models/fields/#field-options
     sigla = models.CharField(max_length=2, help_text='Informe a sigla do seu estado.\nExemplo: ES (Espírito Santo)')
 
     def __str__(self):
@@ -37,53 +71,14 @@ class Endereco(Bairro):   # cep e estado com mascara no html
     numero     = models.CharField(max_length=4, help_text='Número da residência ou local')
     referencia = models.CharField(max_length=50, help_text='Exemplo: Prédio João Maria, apartamento 201')
 
+    #1:N (Exemplo: uma empresa pode ter mais de um endereço)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=True, blank=True)
+    motorista = models.ForeignKey(Motorista, on_delete=models.CASCADE, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
+
     def __str__(self):
         return self.cep+" "+self.numero+" "+self.nome_bairro
 # FIM da estrutura de endereço
-
-
-class Pessoa(models.Model):
-    nome_completo = models.CharField(max_length=255, help_text='Informe o seu nome completo')
-    cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
-    dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
-
-    #Pessoa depende de Endereço para existir no sistema
-    endereco      = models.OneToOneField(Endereco)
-
-    def __str__(self):
-        return "CPF"+self.cpf
-
-
-class Usuario(models.Model):
-    email = models.EmailField(max_length=255, help_text='Informe o seu email, ele será o seu login de acesso')
-    senha = models.CharField(max_length=12, help_text='Informe uma senha de até 12 caractéres')
-
-    #uma pessoa existe sem usuario, mas um usuario nao existe sem pessoa
-    #ou seja, usuario depende de pessoa
-    pessoa = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Login:" + self.email
-
-
-class Cliente(Usuario):
-    pass
-
-    def __str__(self):
-        return "Login Cliente:" + self.email
-
-class Empresa(models.Model):
-    cnpj = models.CharField(max_length=14)
-    razao_social = models.CharField(max_length=100)
-    telefone = models.CharField(max_length=11)
-
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
-class Motorista(Usuario):
-    pass
-
-    def __str__(self):
-        return "Login Motorista:" + self.email
 
 
 class Habilitacao(models.Model):
@@ -99,9 +94,9 @@ class Habilitacao(models.Model):
 
 
 class ContaBanco(models.Model):
-    numero_conta = models.DecimalField(help_text='Informe o número da conta para depósito de pagamentos.')
-    agencia      = models.DecimalField(help_text='Informe o número da sua agencia.')
-    tipo_conta   = models.DecimalField(help_text='Informe o número identificador do tipo de conta.\nExemplo: 500 para poupança.')
+    numero_conta = models.IntegerField(max_length=32, help_text='Informe o número da conta para depósito de pagamentos.')
+    agencia      = models.IntegerField(max_length=4, help_text='Informe o número da sua agencia.')
+    tipo_conta   = models.IntegerField(max_length=3, help_text='Informe o número identificador do tipo de conta.\nExemplo: 500 para poupança.')
 
     #ContaBanco é dependente de motorista
     motorista    = models.OneToOneField(Motorista, on_delete=models.CASCADE)
@@ -111,36 +106,33 @@ class ContaBanco(models.Model):
 
 
 class Carteira(models.Model):
-    TIPO_CARTEIRA = [('Cliente', 'Cliente'), ('Motorista', 'Motorista')]
-    tipo_carteira = models.CharField(max_length=9, choices=TIPO_CARTEIRA)
+    TIPO_CARTEIRA   = [('Cliente', 'Cliente'), ('Motorista', 'Motorista')]
+    tipo_carteira   = models.CharField(max_length=9, choices=TIPO_CARTEIRA, default=None, )
 
     #saldoReal pode ficar em branco se a cateira for de cliente, pq ele não tem reais, apenas trashcoin e cupom
-    saldoReal    = models.DecimalField(decimal_places=2, max_digits=8, blank=True)
+    saldo_real      = models.DecimalField(decimal_places=2, max_digits=8, default=0)
+    saldo_trashcoin = models.DecimalField(decimal_places=2, max_digits=100, default=0)
 
     #Carteira nao existe sem Usuario
     #Atenção ao construir uma carteira para usuário, pois existem tipos e o usario Empresa não tem carteira
-    usuario      = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, blank=True)
+    user            = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return str(self.saldoReal)
+        return str(self.saldo_real)
 
 
 class TrashCoin(models.Model):
     taxa  = models.DecimalField(decimal_places=2, max_digits=3)
-    saldo = models.IntegerField()
 
     def __str__(self):
         return self.saldo
 
 class Cupom(models.Model):
-    titulo    = models.CharField(max_length=30)
+    titulo    = models.CharField(max_length=30, default='')
     SERVICO   = [('Netflix', 'Netflix'), ('Spotify', 'Spotify'), ('Uber', 'Uber')]
-    servico   = models.CharField(max_length=7, choices=SERVICO)
-    descricao = models.TextField(max_length=1000)
-    valor     = models.IntegerField()
-
-    #relacionamento 1xNm 1 carteira pode ter varios cupons diferentes
-    carteira = models.ForeignKey(Carteira)
+    servico   = models.CharField(max_length=7, choices=SERVICO, default=None)
+    descricao = models.TextField(max_length=1000, default='')
+    valor     = models.IntegerField(default=0)
 
     def __str__(self):
         return "Cupom:" + self.servico + " de " + self.valor
@@ -194,3 +186,27 @@ class Cupom(models.Model):
 
     def __str__(self):
         return self.empresa.nome + " " + str(self.valor)'''
+
+'''class Pessoa(models.Model):
+    nome_completo = models.CharField(max_length=255, help_text='Informe o seu nome completo')
+    cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
+    dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
+
+    #Pessoa depende de Endereço para existir no sistema
+    endereco      = models.OneToOneField(Endereco)
+
+    def __str__(self):
+        return "CPF"+self.cpf
+
+
+class Usuario(models.Model):
+    email = models.EmailField(max_length=255, help_text='Informe o seu email, ele será o seu login de acesso')
+    senha = models.CharField(max_length=12, help_text='Informe uma senha de até 12 caractéres')
+
+    #uma pessoa existe sem usuario, mas um usuario nao existe sem pessoa
+    #ou seja, usuario depende de pessoa
+    pessoa = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Login:" + self.email
+'''

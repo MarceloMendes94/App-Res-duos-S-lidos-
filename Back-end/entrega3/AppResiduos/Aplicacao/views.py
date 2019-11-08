@@ -2,14 +2,14 @@ from django.shortcuts               import render,redirect
 from django.contrib.auth            import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models                        import Carteira, User, Cliente, Endereco
-from .forms                         import ClienteForm, EnderecoForm, MotoristaForm, EmpresaForm
+#from .forms                         import ClienteForm, EnderecoForm, MotoristaForm, EmpresaForm
 from .builder                       import DiretorCliente,DiretorEmpresa,DiretorMotorista
 from django.contrib                 import messages
 from django.views.decorators.csrf import csrf_protect
 
 def index(request):
     return render(request,'index.html')
-
+'''
 def cliente_cadastro(request): 
     clienteform  = ClienteForm()
     enderecoform = EnderecoForm()
@@ -83,7 +83,7 @@ def empresa_cadastro(request):
         DiretorEmpresa(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cnpj,razao_social,telefone)
     return render(request, 'empresa_cadastro.html', {'form_empresa': empresaform, 'enderecoform': enderecoform})
 
-
+'''
 
 
 

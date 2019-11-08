@@ -3,7 +3,7 @@ from .models import Cliente, Endereco, Empresa, Motorista
 from django.forms import Form
 from django.contrib.auth.models import User
 
-
+'''
 class ClienteForm(forms.ModelForm):
     nome_completo = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -65,3 +65,4 @@ class MotoristaForm(Form):
 
     class Meta:
         model = Motorista
+'''''
