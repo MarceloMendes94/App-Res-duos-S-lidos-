@@ -14,7 +14,7 @@ class UserForm(Form):
 
 
 class ColetaForm(Form):
-    date_time = forms.DateTimeField(widget=forms.DateTimeField(attrs={'class': 'form-control'}))
+    date_time = forms.DateTimeField()
     
     class Meta:
         model = Coleta 
@@ -24,9 +24,9 @@ class MotoristaForm(Form):
     placa                = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     numero_habilitacao   = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     tipo_habilitacao     = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    validade_habilitacao = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control'}))
+    validade_habilitacao = forms.DateField()
     cpf                  = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'data-mask': '000.000.000-00'}))
-    data_nascimento      = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control'}))
+    data_nascimento      = forms.DateField()
 
     class Meta:
         model = Motorista
@@ -47,14 +47,14 @@ class HabilitacaoForm(Form):
     class Meta:
         model = Habilitacao
 '''
-
+'''
 class ClienteForm(forms.ModelForm):
     cpf              = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'data-mask': '000.000.000-00'}))
-    data_nascimento  = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control'}))
+    data_nascimento  = forms.DateField()
 
     class Meta:
         model = Cliente
-
+'''
 
 class EmpresaForm(Form):
     razao_social = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))

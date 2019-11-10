@@ -9,7 +9,7 @@ urlpatterns = [
     path('logout/', views.logout_user),
     #path('cliente/cadastro/', views.cliente_cadastro),
     path('cliente/perfil/', views.cliente_perfil),
-    path('cliente/agendamento/',views.agendamento_cadastro),
+    path('cliente/agendamento/', views.agendamento_cadastro),
 
 
 

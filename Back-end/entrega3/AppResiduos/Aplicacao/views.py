@@ -104,13 +104,12 @@ def empresa_cadastro(request):
         DiretorEmpresa(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cnpj,razao_social,telefone)
     return render(request, 'empresa_cadastro.html', {'form_empresa': empresaform, 'enderecoform': enderecoform})
 
-'''
+
 
 
 
 def login_page(request):
     return render(request,'login.html')
-
 
 def login_submit(request):
     if request.POST:
@@ -141,7 +140,6 @@ def agendamento_cadastro(request):
         print(request.POST.get('dia'))
         print(request.POST.get('time'))
     return render(request,'agendamento_cadastro.html')
-
 
 # Redirecionador para tipo de cadastro
 def cadastro(request):

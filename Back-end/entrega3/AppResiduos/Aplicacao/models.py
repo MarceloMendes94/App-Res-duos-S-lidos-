@@ -42,7 +42,7 @@ class Cliente(User):
 
 class Motorista(User):
     user = models.OneToOneField(User, on_delete=models.CASCADE, parent_link=True, default=None)
-    placa = models.CharField(max_length=10, help_text="Informe a placa do seu veiculo")
+    placa = models.CharField(max_length=10, default=None ,help_text="Informe a placa do seu veiculo")
 
     def __str__(self):
         return "Login Motorista:" + self.email
