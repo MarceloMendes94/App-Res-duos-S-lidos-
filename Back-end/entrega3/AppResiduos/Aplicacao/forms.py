@@ -1,10 +1,9 @@
 from django import forms
-from .models import Cliente, Endereco, Empresa, Motorista
+from .models import Cliente, Endereco, Empresa, Motorista, Coleta,ContaBanco,Habilitacao
 from django.forms import Form
 from django.contrib.auth.models import User
 
 class UserForm(Form):
-    username    = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name  = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name   = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     email       = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
@@ -13,14 +12,13 @@ class UserForm(Form):
     class Meta:
         model = User
 
-'''
-# ainda n implementaram o Models do Coleta, assim que implementarem adiciona-lo na importacao
+
 class ColetaForm(Form):
-    date_time = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control'}))
+    date_time = forms.DateTimeField(widget=forms.DateTimeField(attrs={'class': 'form-control'}))
     
     class Meta:
         model = Coleta 
-'''
+
 
 class MotoristaForm(Form):
     placa                = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -33,6 +31,22 @@ class MotoristaForm(Form):
     class Meta:
         model = Motorista
 
+class ContaBancoForm(Form):
+    numConta    = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    agencia     = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = ContaBanco
+
+''' # não vejo necessidade, eu fiz e desativei (lewis)
+class HabilitacaoForm(Form):
+    numero      = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    tipo        = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    validade    = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = Habilitacao
+'''
 
 class ClienteForm(forms.ModelForm):
     cpf              = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'data-mask': '000.000.000-00'}))

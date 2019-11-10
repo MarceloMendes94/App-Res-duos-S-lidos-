@@ -2,24 +2,26 @@ from django.shortcuts               import render,redirect
 from django.contrib.auth            import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models                        import Carteira, User, Cliente, Endereco
-#from .forms                         import ClienteForm, EnderecoForm, MotoristaForm, EmpresaForm
+from .forms                         import *
 from .builder                       import DiretorCliente,DiretorEmpresa,DiretorMotorista
 from django.contrib                 import messages
 from django.views.decorators.csrf import csrf_protect
 
 def index(request):
     return render(request,'index.html')
-'''
-def cliente_cadastro(request): 
+
+def cliente_cadastro(request):
+    userform = UserForm()
     clienteform  = ClienteForm()
     enderecoform = EnderecoForm()
     if request.POST:
-        #user fields
-        nome_completo        = request.POST.get('nome_completo')
-        # sobrenome   = request.POST.get('sobrenome')
+        # USER fields
+        nome        = request.POST.get('nome')
+        sobrenome   = request.POST.get('sobrenome')
         senha       = request.POST.get('password')
         email       = request.POST.get('email')
-        #endereco fields
+
+        # endereco fields
         estado      = request.POST.get('estado')
         cep         = request.POST.get('cep')
         cidade      = request.POST.get('cidade')
@@ -27,22 +29,27 @@ def cliente_cadastro(request):
         logradouro  = request.POST.get('logradouro')
         numero      = request.POST.get('numero')
         referencia  = request.POST.get('referencia')
-        #FIELDS CLIENTE
+        # cliente fields
         cpf  = request.POST.get('cpf')
-        data_nascimento  = request.POST.get('data_nascimento')        
+        data_nascimento  = request.POST.get('data_nascimento')
+
         DiretorCliente(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,cpf,data_nascimento)
-    return render(request,'cliente_cadastro.html',{'clienteform':clienteform,'enderecoform':enderecoform})
+    return render(request,'cliente_cadastro.html',{'clienteform':clienteform,'enderecoform':enderecoform, 'userform':userform})
 
 # motorista
 def motorista_cadastro(request):
+    userform = UserForm()
     motoristaform = MotoristaForm()
     enderecoform = EnderecoForm()
+    contaBancoform = ContaBancoForm()
+
     if request.POST:
         #fields USER
         nome        = request.POST.get('nome')
         sobrenome   = request.POST.get('sobrenome')
         senha       = request.POST.get('password')
         email       = request.POST.get('email')
+
         #fields ENDERECO
         estado      = request.POST.get('estado')
         cep         = request.POST.get('cep')
@@ -52,10 +59,23 @@ def motorista_cadastro(request):
         numero      = request.POST.get('numero')
         referencia  = request.POST.get('referencia')        
         #fields MOTORISTA
-        habilitacao = request.POST.get('habilitacao')
         placa = request.POST.get('placa')
-        DiretorMotorista(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,habilitacao,placa)
-    return render(request, 'motorista_cadastro.html', {'motoristaform': motoristaform, 'enderecoform': enderecoform})
+
+        numero_habilitacao = request.POST.get('numero_habilitacao')
+        tipo_habilitacao = request.POST.get('tipo_habilitacao')
+        validade_habilitacao = request.POST.get('validade_habilitacao')
+
+        cpf             = request.POST.get('cpf')
+        data_nascimento = request.POST.get('data_nascimento')
+        #fields ContaBanco
+        numConta        = request.POST.get('numero_habilitacao')
+        agencia         = request.POST.get('numero_habilitacao')
+        tipo_conta      = request.POST.get('tipo_conta')
+
+
+        DiretorMotorista(nome,sobrenome,senha,email,estado,cep,cidade,bairro,logradouro,numero,referencia,placa,
+                         numero_habilitacao,tipo_habilitacao,validade_habilitacao,cpf,data_nascimento, numConta, agencia,tipo_conta)
+    return render(request, 'motorista_cadastro.html', {'motoristaform': motoristaform, 'enderecoform': enderecoform,'contaBancoform':contaBancoform, 'userform':userform})
 
 # empresa
 def empresa_cadastro(request):
@@ -67,6 +87,7 @@ def empresa_cadastro(request):
         sobrenome   = request.POST.get('sobrenome')
         senha       = request.POST.get('password')
         email       = request.POST.get('email')
+
         #fields ENDERECO
         estado      = request.POST.get('estado')
         cep         = request.POST.get('cep')

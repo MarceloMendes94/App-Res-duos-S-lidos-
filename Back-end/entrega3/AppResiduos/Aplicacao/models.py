@@ -20,6 +20,10 @@ class Empresa(models.Model):
     def __str__(self):
         return self.user.name
 
+class Coleta(models.Model):
+    dtHora = models.DateTimeField(auto_now=False, auto_now_add=False, help_text='Informe a data e hora da coleta')
+    # link para o residuo?
+
 class InfoAdicional(models.Model):
     cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
     dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
@@ -38,6 +42,7 @@ class Cliente(User):
 
 class Motorista(User):
     user = models.OneToOneField(User, on_delete=models.CASCADE, parent_link=True, default=None)
+    placa = models.CharField(max_length=10, help_text="Informe a placa do seu veiculo")
 
     def __str__(self):
         return "Login Motorista:" + self.email
@@ -63,7 +68,6 @@ class Bairro(Cidade):
 
     def __str__(self):
         return self.nome_bairro
-
 
 class Endereco(Bairro):   # cep e estado com mascara no html
     logradouro = models.CharField(max_length=30, help_text='Exemplo: Alameda, área, avenida, campo, chácara')
