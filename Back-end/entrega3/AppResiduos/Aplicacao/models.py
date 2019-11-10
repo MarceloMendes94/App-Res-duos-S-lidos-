@@ -25,9 +25,14 @@ class Coleta(models.Model):
     # link para o residuo?
 
 class InfoAdicional(models.Model):
-    cpf           = models.CharField(max_length=14, help_text='Informe o CPF sem caractéres especiais')
-    dt_nascimento = models.DateField(help_text='Informe a sua data de nascimento')
-
+    cpf           = models.CharField(max_length=14, help_text='Informe seu CPF (apenas números)')
+    dt_nascimento = models.DateField(help_text='Informe sua data de nascimento')
+    GENDER_CHOICES = (
+        ('M', 'Masculino'),
+        ('F', 'Feminino'),
+        ('O', 'Outro'),
+    )
+    genero        = models.CharField(max_length=1, choices=GENDER_CHOICES,default=None)
     user          = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
@@ -70,7 +75,7 @@ class Bairro(Cidade):
         return self.nome_bairro
 
 class Endereco(Bairro):   # cep e estado com mascara no html
-    logradouro = models.CharField(max_length=30, help_text='Exemplo: Alameda, área, avenida, campo, chácara')
+    logradouro = models.CharField(max_length=30, help_text='Exemplo: Alameda, área, avenida, rua, chácara')
     cep        = models.CharField(max_length=8, help_text='Informe o CEP sem caractéres especiais')
     numero     = models.CharField(max_length=4, help_text='Número da residência ou local')
     referencia = models.CharField(max_length=50, help_text='Exemplo: Prédio João Maria, apartamento 201')
@@ -87,7 +92,14 @@ class Endereco(Bairro):   # cep e estado com mascara no html
 
 class Habilitacao(models.Model):
     numero    = models.CharField(max_length=14)
-    tipo      = models.CharField(max_length=5) #pode ser choices field
+    TIPOS_HABILITACAO = (
+        ('A', 'Tipo A'),
+        ('B', 'Tipo B'),
+        ('C', 'Tipo C'),
+        ('D', 'Tipo D'),
+        ('E', 'Tipo E'),
+    )
+    tipo      = models.CharField(max_length=6, choices=TIPOS_HABILITACAO, default=None)
     validade  = models.DateField()
 
     #Habilitacao é dependente de motorista
@@ -98,9 +110,9 @@ class Habilitacao(models.Model):
 
 
 class ContaBanco(models.Model):
-    numero_conta = models.IntegerField(max_length=32, help_text='Informe o número da conta para depósito de pagamentos.')
-    agencia      = models.IntegerField(max_length=4, help_text='Informe o número da sua agencia.')
-    tipo_conta   = models.IntegerField(max_length=3, help_text='Informe o número identificador do tipo de conta.\nExemplo: 500 para poupança.')
+    numero_conta = models.IntegerField(help_text='Informe o número da conta para depósito de pagamentos.')
+    agencia      = models.IntegerField(help_text='Informe o número da sua agencia.')
+    tipo_conta   = models.IntegerField(help_text='Informe o número identificador do tipo de conta.\nExemplo: 500 para poupança.')
 
     #ContaBanco é dependente de motorista
     motorista    = models.OneToOneField(Motorista, on_delete=models.CASCADE)
@@ -128,8 +140,9 @@ class Carteira(models.Model):
 class TrashCoin(models.Model):
     taxa  = models.DecimalField(decimal_places=2, max_digits=3)
 
+    #Aparentemente esse método é para mostrar um nome em vez de "Object" no djangoadmin
     def __str__(self):
-        return self.saldo
+        return "TrashCoin"
 
 class Cupom(models.Model):
     titulo    = models.CharField(max_length=30, default='')
