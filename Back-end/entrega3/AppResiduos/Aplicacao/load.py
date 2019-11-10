@@ -11,6 +11,50 @@ def load_clientes():
     DiretorCliente('vanessa', 'silva'    , '123', 'cliente4@gmail.com','es', '29106080', 'vila pavão','ibiri', 'rua das bananas', '18', 'nenhuma', '60435777041' ,'1994-06-06')
     DiretorCliente('marcelo', 'madureira', '123', 'cliente5@gmail.com','es', '29106080', 'vila pavão','ibiri', 'rua das bananas', '20', 'nenhuma', '59616689088' ,'1994-06-06')
 
+    size = 10
+    nome = [
+        'luiz','antonio','glaydson','paulo','kleber', 'caio', 'gary', 'ana', 'jose', 'brenno'
+    ]
+    sobrenome = [
+        'silva', 'oliveira', 'neto', 'junior', 'roque', 'guzzo', 'fernandes', 'santos', 'lima', 'rosa'
+    ]
+    senha = [
+        '1234','1234','1234','1234','1234','1234','1234','1234','1234','1234'
+    ]
+    email= [
+        'luiz@gmail.com', 'antonio@gmail.com', 'glaydson@gmail.com', 'paulo@gmail.com', 'kleber@gmail.com', 'caio@gmail.com', 'gary@gmail.com', 'ana@gmail.com', 'jose@gmail.com', 'brenno@gmail.com'
+    ]
+    estado = [
+        'ES','ES','ES','ES','ES','ES','ES','ES','ES','ES'
+    ]
+    cep = [
+        '29060270','29060270','29060270','29060270','29060270','29060270','29060270','29060270','29060270','29060270'
+    ]
+    cidade = [
+        'vitoria','vitoria','vitoria','vitoria','vitoria','vila velha','vila velha','vila velha','vila velha','vila velha'
+    ]
+    bairro = [
+        'pedro nolasco','ibiratiba','jeriquaquara','Pedra Branca','Cariacica','Porto de Galinhas','Gramado','Canela','morro de são paulo','Ferrosa'
+    ]
+    lorgadouro = [
+        'logra1','logra2','logra3','logra4','logra5','logra6','logra7','logra8','logra9','logra10'
+    ]
+    numero = [
+        '111','112','113','121','122','123','131','132','133','211'
+    ]
+    referencia = [
+        'ref1','ref2','ref3','ref4','ref5','ref6','ref7','ref8','ref9','ref10'
+    ]
+    cpf = [
+        '12671513111','12671513112','12671513113','12671513121','12671513122','12671513123','12671513131','12671513132','12671513133','12671513211'
+    ]
+    data_nascimento = [
+        '1994-06-01','1994-06-02','1994-06-03','1994-06-04','1994-06-05','1994-06-06','1994-06-07','1994-06-08','1994-06-09','1994-06-10',
+    ]
+
+    for i in range(size):
+        DiretorCliente(nome[i],sobrenome[i],senha[i],email[i],estado[i],cep[i],cidade[i],bairro[i],lorgadouro[i],numero[i],referencia[i],cpf[i],data_nascimento[i])
+
 def load_motoristas():
     DiretorMotorista('Kraubler', 'Glaydson', '1234', 'motorista1@gmail.com', 'es', '29260579', 'cariacicacity', 'são jose', 'logra', '123', 'nebas', 'A-B-C-D', 'HLP-3313')
     DiretorMotorista('Lucimar', 'Ferreira', '1234', 'motorista2@gmail.com', 'es', '29264579', 'cariacicacity2', 'são jose2', 'logra', '313', 'nebas', 'C-D', 'HGP-3217')

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec83b3a7-d48d-4e3c-b1c7-06e4ee040f1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/App-Res-duos-S-lidos-.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/App-Res-duos-S-lidos-.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/ag.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/ag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/algoritmo_genetico_table.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../../Inteligencia-Artificial/algoritmo_genetico/ag/algoritmo_genetico_table.xls" afterDir="false" />
     </list>
@@ -19,72 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6366013">
-      <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.49349844">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="510">
-                      <caret line="75" column="75" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
-                      <folding>
-                        <element signature="e#0#58#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="578">
-                      <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
-                      <folding>
-                        <element signature="e#0#24#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="408">
-                      <caret line="102" column="14" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="14" />
-                      <folding>
-                        <element signature="e#307#335#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#0#21#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -124,19 +54,19 @@
         <option value="$PROJECT_DIR$/Back-end/entrega 2 DESATUALIZADO/core/models.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/factory.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/AppResiduos/urls.py" />
-        <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/models.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py" />
         <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py" />
+        <option value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="204" />
+    <option name="y" value="102" />
+    <option name="width" value="1496" />
+    <option name="height" value="869" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -144,7 +74,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,33 +84,13 @@
             <path>
               <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
               <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega3" type="462c0819:PsiDirectoryNode" />
               <item name="AppResiduos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="App-Res-duos-S-lidos-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="App-Res-duos-S-lidos-" type="462c0819:PsiDirectoryNode" />
-              <item name="Back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="entrega3" type="462c0819:PsiDirectoryNode" />
-              <item name="AppResiduos" type="462c0819:PsiDirectoryNode" />
-              <item name="Aplicacao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -206,6 +115,34 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="load" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="App-Res-duos-S-lidos-" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.load" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -220,21 +157,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="204" y="102" width="1496" height="869" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.095744684" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15843621" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.13432837" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.19393283" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.19565217" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -452,13 +388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/models (2).py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -469,9 +398,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="75" column="75" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="629">
           <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -489,22 +428,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/builder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back-end/entrega3/AppResiduos/Aplicacao/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="75" column="75" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
