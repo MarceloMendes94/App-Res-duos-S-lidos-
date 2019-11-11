@@ -163,8 +163,7 @@ def logout_user(request):
 # INICIO DE TELAS DE Cliente
 @login_required(login_url='/login/')
 def cliente_perfil(request):
-    result=User.objects.filter(email=request.session['email'])
-    nome=result[0].first_name
+    nome=getNome(request)
     return render(request,'cliente_perfil.html',{'nome':nome})
 
 @login_required(login_url='/login/')
@@ -178,24 +177,33 @@ def pedir_coleta(request):
     return render(request,'cliente_coleta.html')
 # FIM DE TELAS DE Cliente
 
-
-
-
 # INICIO DE TELAS DE MOTORISTA
 @login_required(login_url='/login/')
 def motorista_perfil(request):
-    return render(request,'motorista_perfil.html')
+    nome=getNome(request)
+    return render(request,'motorista_perfil.html',{'nome':nome})
 
 @login_required(login_url='/login/')
 def visualizar_coletas(request):
-    result=Coleta.objects.filter(aguardando=True,)
-    coletas=[]
+    
+    nome = getNome(request)
+    result = Coleta.objects.filter(aguardando=True)
+    coletas = []
+
     for i in result:
         coletas.append(i)
 
-    return render(request,'motorista_coleta.html',{'coletas':coletas})
+    return render(request,'motorista_coleta.html',{'coletas':coletas,'nome':nome})
 
 @login_required(login_url='/login/')
 def pesagem_coleta(request):
     return render(request,'motorista_pesagem.html')
 # FIM DE TELAS DE MOTORISTA
+
+
+#INICIO FUNÇOES QUE TRATAM SESSAO
+def getNome(request):
+    result=User.objects.filter(email=request.session['email'])
+    nome=result[0].first_name
+    return nome
+#FIM FUNÇOES QUE TRATAM SESSAO    

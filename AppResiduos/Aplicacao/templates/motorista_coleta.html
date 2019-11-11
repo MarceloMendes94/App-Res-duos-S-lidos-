@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-        {% load static %}
-    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <style>
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+            {% load static %}
+        <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <style>
+        </style>
+    </head>
     <body>
-        <!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+        
         <nav class="navbar navbar-light bg-light">
             <!-- Logo -->
             <a class="navbar-brand" href="">
@@ -19,28 +19,41 @@
             </a>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link " href="/cadastro">Cadastre-se</a>
+                    <a class="nav-link " >{{nome}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Entrar</a>
+                    <a class="nav-link" href="/logout/">sair</a>
                 </li>
             </ul>
         </nav>
-        <br>
+    <br>
         
         <div class="container">
-            <a href="/motorista/perfil/">voltar</a>
             <form method="POST" class="post-form">{% csrf_token %}
-                <input type=""       name='filtro' value='PEAP' placeholder='insira sua pesquisa'>
-                <button type="submit" class="btn btn-info" >pesquisa</button>
-                <br><br>
-            </form>    
-            <br>
+                <input type="text"    name='filtro' placeholder='insira sua pesquisa'>
+                <button type="submit" class="btn btn-info" >
+                    pesquisa
+                </button>    
+            </form>
+        </div>
+    <br>    
+        <div class="container">
             {% for coleta in coletas %}
-            {{coleta}}
-            <button> pesagem</button>
-            <br>
+            <div class="row">
+                <div class="col-8">
+                    {{coleta}}
+                </div>
+                <div class=".col-sm-4">        
+                    <button class="btn btn-info">
+                        pesagem
+                    </button>
+                </div>
+            </div>
+            
+    <br>            
             {% endfor %}
-        </div>    
+                
+        </div>  
+
     </body>
 </html>
