@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>perfil cliente</title>
+        {% load static %}
+        <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-light bg-light">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../../">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+                     width="30" height="30" class="d-inline-block align-top" alt="">
+                reCicle
+            </a>
+        
+        </nav>
+        <br>
+        <h3> bom dia {{nome}}</h3>
+        <br>
+        <ul>
+            <li>
+                <a href='/cliente/coleta/'>pedir coleta</a>
+            </li>
+
+            <li>carteira</li>
+            <li>loja de cupons</li>
+            
+            <li>
+                    <a href='/logout/'>Sair</a>
+            </li>
+        </ul>        
+
+  </form>
+</body> 
