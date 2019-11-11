@@ -21,3 +21,6 @@
 [Link para os prototipos de tela](Documentos/mockup.pdf)
 # Minimundo
 [Link para o minimundo](Documentos/minimundo.md)
+# Descrição dos métodos de pagamento
+[Link para o descrição](Documentos/Descricao_Metodos_Pagamento.md)
+
