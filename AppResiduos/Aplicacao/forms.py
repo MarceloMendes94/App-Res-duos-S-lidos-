@@ -8,6 +8,8 @@ class ClienteForm(Form):
     sobrenome   =    forms.CharField (widget=forms.TextInput (attrs={'class': 'form-control' }))
     email       =    forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control' }))
     password    =    forms.CharField (widget=forms.PasswordInput(attrs={'class': 'form-control','type':'password' }))
+    data_nascimento = forms.DateField()
+    cpf = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'data-mask': '000.000.000-00'}))
 
     class Meta:
         model = Cliente

@@ -26,7 +26,7 @@ class Coleta(models.Model):
 
 class InfoAdicional(models.Model):
     cpf           = models.CharField(max_length=14, help_text='Informe seu CPF (apenas números)')
-    dt_nascimento = models.DateField(help_text='Informe sua data de nascimento')
+    dt_nascimento = models.DateField(help_text='Informe sua data de nascimento ex: AAAA-MM-DD')
     GENDER_CHOICES = (
         ('M', 'Masculino'),
         ('F', 'Feminino'),

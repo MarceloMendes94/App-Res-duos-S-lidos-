@@ -40,7 +40,7 @@ class Cliente(models.Model):
     usuario =  models.ForeignKey(User,on_delete=models.CASCADE)
     carteira = models.ForeignKey(Carteira,on_delete=models.CASCADE)
     endereco = models.ForeignKey(Endereco,on_delete=models.CASCADE)
-    data_nascimento = models.DateField()
+    data_nascimento = models.DateField(help_text='Informe sua data de nascimento ex: AAAA-MM-DD')
     cpf = models.CharField(max_length=11)
     def __str__(self):
         return self.usuario.email

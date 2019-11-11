@@ -22,6 +22,6 @@ urlpatterns = [
 
     path('cadastro/', views.cadastro),
     
-    path('cadastro/empresa/', views.empresa_cadastro),
+    path('empresa/cadastro/', views.empresa_cadastro),
     
 ]
