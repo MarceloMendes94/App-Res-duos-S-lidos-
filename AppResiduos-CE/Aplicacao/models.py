@@ -113,17 +113,6 @@ class Cupom(models.Model):
         return self.empresa.nome + " " + str(self.valor)
 #   FIM CUPOMS
 
-class TransacaoMensal(models.Model):
-    valor_pago = models.DecimalField(max_digits=10, decimal_places=2)
-    data_hora = models.DateTimeField(auto_now_add=True)
-
-    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=True, blank=True)
-    #protocolos
-    pass
-
-    def __str(self):
-        pass
-
 class ComprovanteEntrega(models.Model):
     #um "protocolo singleton", mas ele identifica a entrega de um "motorista" que aconteceu em "tal dia", e gerou tal "valor de pagamento"
     #data_hora = models.DateTimeField(auto_now_add=True)
@@ -133,9 +122,22 @@ class ComprovanteEntrega(models.Model):
     #usar o id como "protocolo singleton"
 
 
-    transacao = models.ForeignKey(TransacaoMensal, on_delete=models.CASCADE)
     #motorista = models.ForeignKey(Motorista, on_delete=models.CASCADE, null=True, blank=True)
 
-    def __str(self):
+    def __str__(self):
+        return self.nome_empresa
+
+
+class TransacaoMensal(models.Model):
+    valor_pago = models.DecimalField(max_digits=10, decimal_places=2)
+    data_hora = models.DateTimeField(auto_now_add=True)
+    nome_empresa = models.CharField(max_length=30, default="")
+    #empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=True, blank=True)
+    #protocolos
+
+    
+    comprovante = models.ForeignKey(ComprovanteEntrega, on_delete=models.DO_NOTHING, null=True)
+    def __str__(self):
         pass
+
 
