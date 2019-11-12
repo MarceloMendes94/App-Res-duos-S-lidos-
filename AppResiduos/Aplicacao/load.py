@@ -1,5 +1,5 @@
 from .builder import *
-from .models import EmpresaCupom
+from .models import EmpresaCupom,Cupom
 
 # faça
 # python3 manage.py shell
@@ -32,19 +32,40 @@ def load_motoristas():
 def load_empresa():
     DiretorEmpresa('Agenor','fucks','123','empresa1@gmail.com','es','29106100','vila pavão','caboclo','rua mingau','sn','ao lado do motel','18609928000133','Brasileirinhas ltda','33394433')
 
-def load_empresa_cupom():
+def load_empresa_and_cupom():
+    #IFOOD
     ifood = EmpresaCupom(nome='Ifood',imagem='/static/img/ifood.png')
     ifood.save()
+    cupom_01 = Cupom(empresa=ifood,valor=10.0)
+    cupom_01.save() 
+    cupom_02 = Cupom(empresa=ifood,valor=20.0)
+    cupom_02.save()
+    #HBO GO     
     hbogo = EmpresaCupom(nome='HBOgo',imagem='/static/img/hbogo.png')
     hbogo.save()
+    cupom_03 = Cupom(empresa=hbogo,valor=35.0)
+    cupom_03.save()
+    #NETFLIX
     netflix = EmpresaCupom(nome='Netflix',imagem='/static/img/netflix.png')
     netflix.save()
+    cupom_04 = Cupom(empresa=netflix,valor=25.0)
+    cupom_04.save(0)
+    #UBER
     spotify = EmpresaCupom(nome='Spotify',imagem='/static/img/spotify.png')
     spotify.save()
+    cupom_05 = Cupom(empresa=spotify,valor=10.0)
+    cupom_05.save()
+
     uber = EmpresaCupom(nome='Uber',imagem='/static/img/uber.png')
     uber.save()
-
+    cupom_06 = Cupom(empresa=uber,valor=10.0)
+    cupom_06.save()
+    cupom_07 = Cupom(empresa=uber,valor=20.0)
+    cupom_07.save()
+    cupom_08 = Cupom(empresa=uber,valor=30.0)
+    cupom_08.save()
     
+
 
 def load_all():
     load_clientes()
