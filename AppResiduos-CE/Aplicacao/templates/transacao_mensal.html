@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pagamento</title>
 </head>
+
 <body>
+    <!-- <nav class="navbar navbar-expand-lg " style="background-color: #00994c; color: #E0E0E0;"> -->
+    <nav class="navbar navbar-light bg-light">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlv4pMMAKcSwsb_PJgO5FLiZUzQKBjvaC6-H19iRMMcDGHBPPEQQ"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            reCicle
+        </a>
+    </nav>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pagar com boleto</h5>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        <form action="https://www.boletobancario.com/boletofacil/integration/button/checkout.html"
+                            method="post">
+                            <input type="hidden" name="code" value="12526D97501A6DA3" />
+                            <input type="image"
+                                src="https://www.boletobancario.com/boletofacil/img/payment-buttons/button-box-medium.png"
+                                name="submit" alt="Pague com a Juno!" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pagar com cartão de crédito</h5>
+                        <div id="paypal-button-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type='hidden' value='{{  valor_total_a_pagar  }}' id='total_pagamento'>
+
+
+
+
+    </div>
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+    <script>
+        var valor_pagar = (document.getElementById('total_pagamento').value) + '';
+        alert(valor_pagar);
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: valor_pagar
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+
 
 </body>
+
 </html>
