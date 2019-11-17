@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/App-Res-duos-S-lidos-.iml" filepath="$PROJECT_DIR$/.idea/App-Res-duos-S-lidos-.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Inteligencia-Artificial/.idea/Inteligencia-Artificial.iml" filepath="$PROJECT_DIR$/../../Inteligencia-Artificial/.idea/Inteligencia-Artificial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../processaimagem/.idea/processaimagem.iml" filepath="$PROJECT_DIR$/../../processaimagem/.idea/processaimagem.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,7 @@
 from django.shortcuts               import render,redirect
 from django.contrib.auth            import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from .models                        import Carteira, User, Cliente,Motorista, Endereco,Coleta,Cupom, EmpresaCupom, Pesagem,Residuo
+from .models                        import Carteira, User, Cliente,Motorista,Empresa, Endereco,Coleta,Cupom, EmpresaCupom, Pesagem,Residuo
 from .forms                         import ClienteForm, EnderecoForm, MotoristaForm, EmpresaForm
 from .builder                       import DiretorCliente,DiretorEmpresa,DiretorMotorista
 from django.contrib                 import messages
@@ -126,35 +126,38 @@ def empresa_cadastro(request):
 def login_page(request):
     return render(request,'login.html')
 
+def typeUser(email):
+    admins = User.objects.filter(is_superuser=True)
+    for admin in admins:
+        if (admin.email == email):
+            return 'admin'
+
+    clientes = Cliente.objects.all()
+    for cliente in clientes:
+        if (cliente.usuario.email == email):
+            return 'cliente'
+
+    motoristas = Motorista.objects.all()
+    for motorista in motoristas:
+        if (motorista.usuario.email == email):
+            return 'motorista'
+
+    empresas = Empresa.objects.all()
+    for empresa in empresas:
+        if (empresa.usuario.email == email):
+            return 'empresa'
+
+    return None
+
 def login_submit(request):
     if request.POST:
         user = authenticate(username=request.POST.get('email'),password=request.POST.get('password') )
         if user is not None:
             login(request, user)
             request.session['email'] = user.email
-            
-            admins=User.objects.filter(is_superuser=True)
-            for admin in admins:
-                if (admin.email ==request.session['email']):
-                    print('eh admin')
-                    return redirect('/admin/perfil/')
 
-            clientes=Cliente.objects.all()
-            for cliente in clientes:
-                if(cliente.usuario.email==request.session['email']):
-                    print('eh cliente')
-                    return redirect('/cliente/perfil/')
-
-
-            motoristas=Motorista.objects.all()
-            for motorista in motoristas:
-                if(motorista.usuario.email==request.session['email']):
-                    print('eh motorista')
-                    return redirect('/motorista/perfil/')        
-
-
-
-            return redirect('/cliente/perfil/')
+            type = typeUser(request.session['email'])
+            return redirect('/{}/perfil/'.format(type))
         else:
             messages.error(request, "usuario ou senha invalidos.")
 
