@@ -132,6 +132,12 @@ def login_submit(request):
         if user is not None:
             login(request, user)
             request.session['email'] = user.email
+            
+            admins=User.objects.filter(is_superuser=True)
+            for admin in admins:
+                if (admin.email ==request.session['email']):
+                    print('eh admin')
+                    return redirect('/admin/perfil/')
 
             clientes=Cliente.objects.all()
             for cliente in clientes:
@@ -145,6 +151,8 @@ def login_submit(request):
                 if(motorista.usuario.email==request.session['email']):
                     print('eh motorista')
                     return redirect('/motorista/perfil/')        
+
+
 
             return redirect('/cliente/perfil/')
         else:
@@ -199,6 +207,18 @@ def visualizar_coletas(request):
 def pesagem_coleta(request):
     return render(request,'motorista_pesagem.html')
 # FIM DE TELAS DE MOTORISTA
+
+# ADMIN INICIO
+@login_required(login_url='/login/')
+def admin_perfil(request):
+    return render(request,'admin_perfil.html')
+
+def painel_usuario(request):
+    clientes    = Cliente.objects.all()
+    Motoristas  = Motorista.objects.all()
+    return render(request,'admin_usuarios.html')    
+# ADMIN FIM
+
 
 
 #INICIO FUNÇOES QUE TRATAM SESSAO

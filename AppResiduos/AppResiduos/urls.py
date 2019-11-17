@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from Aplicacao import views
 urlpatterns = [
-    path('admin/' , admin.site.urls),
+    #path('admin/' , admin.site.urls),
     path(''       , views.index),
     path('login/' , views.login_page),
     path('login/submit', views.login_submit),
@@ -15,6 +15,10 @@ urlpatterns = [
     path('motorista/perfil/', views.motorista_perfil),
     path('motorista/coleta/',views.visualizar_coletas),
     path('motorista/coleta/pesagem/',views.pesagem_coleta),
+
+    path('admin/perfil/',views.admin_perfil),
+    path('admin/perfil/usuarios/',views.painel_usuario),
+
 
     path('relatorio/pesagem/',views.relatorio_pesagens),
     path('relatorio/cupom/',views.relatorio_cupons),

@@ -1,10 +1,11 @@
 from .builder import *
-from .models import EmpresaCupom,Cupom,Residuo
+import random
+from .models import EmpresaCupom, Cupom, Residuo, Cliente, Motorista, Pesagem
 
 # faça
 # python3 manage.py shell
 # from Aplicacao.load import *
-# load_clientes()
+# load_all()
 
 def load_clientes():
     DiretorCliente('marcelo' , 'silva'    , '123', 'cliente1@gmail.com'  ,'es', '29106080', 'vila pavão' ,'ibiri', 'rua das bananas', '12', 'nenhuma', '49257065006' ,'1994-06-06')
@@ -66,7 +67,7 @@ def load_empresa_and_cupom():
     cupom_08.save()
     
 def load_residuos():
-    
+
     peap = Residuo(nome_residuo='PEAP',valor_kilo=3.70)
     peap.save()
 
@@ -81,6 +82,20 @@ def load_residuos():
     al2 = Residuo(nome_residuo='Aluminio colorido',valor_kilo=2.35)
     al2.save()
 
+def load_pesagem():
+    residuos   = Residuo.objects.all()
+    motoristas = Motorista.objects.all()
+    clientes   = Cliente.objects.all()
+    pesos       = [1.234, 2.349, 1.576, 3.112, 2.750, 2.519, 1.250]
+    #for c in clientes:
+    residuo     =random.choice(residuos)
+    motorista   =random.choice(motoristas)
+    peso        =random.choice(pesos)
+    p = Pesagem(residuo=residuo,motorista=motorista,cliente=random.choice(clientes),peso=peso,data_hora="2011-10-01 15:26")
+    print(residuo.nome_residuo)
+    print(motorista)
+    print(peso)
+
 
 
 
@@ -89,3 +104,4 @@ def load_all():
     load_empresa()
     load_motoristas()
     load_empresa_and_cupom()
+    load_residuos()
