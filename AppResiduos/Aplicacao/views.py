@@ -12,39 +12,7 @@ def index(request):
 
 def cadastro(request):
     return render(request, 'cadastro.html', {})
-
-def relatorio_pesagens(request):
-    pesagens = Pesagem.objects.all()
-    peso_aux=0 
-    for i in range(0,len(pesagens)):
-        peso_aux=peso_aux+pesagens[i].peso        
-    
-    if request.POST:
-        peso_aux=0 
-        filtro = request.POST.get('filtro')
-        if filtro=='0':
-            pesagens = Pesagem.objects.all()
-            for i in range(0,len(pesagens)):
-                peso_aux=peso_aux+pesagens[i].peso   
-        else:
-            res = Residuo.objects.filter(nome_residuo=filtro)
-            res=res[0]
-            pesagens = Pesagem.objects.filter(residuo=res)
-            for i in range(0,len(pesagens)):
-                peso_aux=peso_aux+pesagens[i].peso 
-            
-    return render(request,'page_pesagens.html',{'pesagens':pesagens,'soma':peso_aux})
-
-def relatorio_cupons(request):
-    cupons=Cupom.objects.all()
-    if request.POST:
-        filtro = request.POST.get('filtro')
-        if filtro=='00':
-            cupons=Cupom.objects.all()
-        else:
-            cupons=Cupom.objects.filter(valor=int(filtro))
-        #cupons=Cupom.objects.filter(valor=10)
-    return render(request,'page_cupons.html',{'cupons':cupons})        
+     
 
 
 # INICIO TELAS DE CADASTRO
@@ -126,29 +94,6 @@ def empresa_cadastro(request):
 def login_page(request):
     return render(request,'login.html')
 
-def typeUser(email):
-    admins = User.objects.filter(is_superuser=True)
-    for admin in admins:
-        if (admin.email == email):
-            return 'admin'
-
-    clientes = Cliente.objects.all()
-    for cliente in clientes:
-        if (cliente.usuario.email == email):
-            return 'cliente'
-
-    motoristas = Motorista.objects.all()
-    for motorista in motoristas:
-        if (motorista.usuario.email == email):
-            return 'motorista'
-
-    empresas = Empresa.objects.all()
-    for empresa in empresas:
-        if (empresa.usuario.email == email):
-            return 'empresa'
-
-    return None
-
 def login_submit(request):
     if request.POST:
         user = authenticate(username=request.POST.get('email'),password=request.POST.get('password') )
@@ -188,6 +133,8 @@ def pedir_coleta(request):
     return render(request,'cliente_coleta.html')
 # FIM DE TELAS DE Cliente
 
+
+
 # INICIO DE TELAS DE MOTORISTA
 @login_required(login_url='/login/')
 def motorista_perfil(request):
@@ -211,15 +158,53 @@ def pesagem_coleta(request):
     return render(request,'motorista_pesagem.html')
 # FIM DE TELAS DE MOTORISTA
 
+
+
 # ADMIN INICIO
 @login_required(login_url='/login/')
 def admin_perfil(request):
     return render(request,'admin_perfil.html')
 
+@login_required(login_url='/login/')
 def painel_usuario(request):
     clientes    = Cliente.objects.all()
     Motoristas  = Motorista.objects.all()
     return render(request,'admin_usuarios.html')    
+
+@login_required(login_url='/login/')
+def relatorio_pesagens(request):
+    pesagens = Pesagem.objects.all()
+    peso_aux=0 
+    for i in range(0,len(pesagens)):
+        peso_aux=peso_aux+pesagens[i].peso        
+    
+    if request.POST:
+        peso_aux=0 
+        filtro = request.POST.get('filtro')
+        if filtro=='0':
+            pesagens = Pesagem.objects.all()
+            for i in range(0,len(pesagens)):
+                peso_aux=peso_aux+pesagens[i].peso   
+        else:
+            res = Residuo.objects.filter(nome_residuo=filtro)
+            res=res[0]
+            pesagens = Pesagem.objects.filter(residuo=res)
+            for i in range(0,len(pesagens)):
+                peso_aux=peso_aux+pesagens[i].peso 
+            
+    return render(request,'admin_rel_pesagens.html',{'pesagens':pesagens,'soma':peso_aux})
+
+@login_required(login_url='/login/')
+def relatorio_cupons(request):
+    cupons=Cupom.objects.all()
+    if request.POST:
+        filtro = request.POST.get('filtro')
+        if filtro=='00':
+            cupons=Cupom.objects.all()
+        else:
+            cupons=Cupom.objects.filter(valor=int(filtro))
+        #cupons=Cupom.objects.filter(valor=10)
+    return render(request,'admin_rel_cupom.html',{'cupons':cupons})  
 # ADMIN FIM
 
 
@@ -229,4 +214,27 @@ def getNome(request):
     result=User.objects.filter(email=request.session['email'])
     nome=result[0].first_name
     return nome
+
+def typeUser(email):
+    admins = User.objects.filter(is_superuser=True)
+    for admin in admins:
+        if (admin.email == email):
+            return 'admin'
+
+    clientes = Cliente.objects.all()
+    for cliente in clientes:
+        if (cliente.usuario.email == email):
+            return 'cliente'
+
+    motoristas = Motorista.objects.all()
+    for motorista in motoristas:
+        if (motorista.usuario.email == email):
+            return 'motorista'
+
+    empresas = Empresa.objects.all()
+    for empresa in empresas:
+        if (empresa.usuario.email == email):
+            return 'empresa'
+
+    return None
 #FIM FUNÇOES QUE TRATAM SESSAO    
