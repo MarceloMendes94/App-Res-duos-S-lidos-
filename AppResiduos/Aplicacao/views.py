@@ -100,7 +100,6 @@ def login_submit(request):
         if user is not None:
             login(request, user)
             request.session['email'] = user.email
-
             type = typeUser(request.session['email'])
             return redirect('/{}/perfil/'.format(type))
         else:
@@ -167,9 +166,13 @@ def admin_perfil(request):
 
 @login_required(login_url='/login/')
 def painel_usuario(request):
-    clientes    = Cliente.objects.all()
-    Motoristas  = Motorista.objects.all()
-    return render(request,'admin_usuarios.html')    
+    permissao = permValidador(type_user='admin',email=request.session['email']) 
+    if(permissao==''):        
+        clientes    = Cliente.objects.all()
+        Motoristas  = Motorista.objects.all()
+        return render(request,'admin_usuarios.html')  
+    else:        
+        return redirect(permissao)  
 
 @login_required(login_url='/login/')
 def relatorio_pesagens(request):
@@ -237,4 +240,12 @@ def typeUser(email):
             return 'empresa'
 
     return None
+
+def permValidador(type_user,email):    
+    typeof = typeUser(email)
+    if type_user != typeof :
+        print('permissão negada')        
+        return '/{}/perfil/'.format(typeof)
+    else:
+        return ''      
 #FIM FUNÇOES QUE TRATAM SESSAO    
