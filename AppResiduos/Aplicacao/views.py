@@ -100,8 +100,8 @@ def login_submit(request):
         if user is not None:
             login(request, user)
             request.session['email'] = user.email
-            type = typeUser(request.session['email'])
-            return redirect('/{}/perfil/'.format(type))
+            typeof = typeUser(request.session['email'])
+            return redirect('/{}/perfil/'.format(typeof))
         else:
             messages.error(request, "usuario ou senha invalidos.")
 
