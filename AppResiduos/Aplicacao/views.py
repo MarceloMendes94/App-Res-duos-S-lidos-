@@ -162,7 +162,11 @@ def pesagem_coleta(request):
 # ADMIN INICIO
 @login_required(login_url='/login/')
 def admin_perfil(request):
-    return render(request,'admin_perfil.html')
+    permissao = permValidador(type_user='admin',email=request.session['email']) 
+    if(permissao==''): 
+        return render(request,'admin_perfil.html')
+    else:        
+        return redirect(permissao)      
 
 @login_required(login_url='/login/')
 def painel_usuario(request):
